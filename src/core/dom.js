@@ -32,15 +32,3 @@ export function htmlToText(html) {
     .replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'")
     .replace(/\n{3,}/g, "\n\n").trim();
 }
-
-export function clearNode(node) {
-  while (node && node.firstChild) node.removeChild(node.firstChild);
-  return node;
-}
-
-export function elem(tag, cls, text) {
-  const n = document.createElement(tag);
-  if (cls) n.className = cls;
-  if (text != null) n.textContent = text;
-  return n;
-}

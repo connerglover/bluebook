@@ -181,8 +181,3 @@ export function hideSignin() {
   if (ui.signin) ui.signin.hidden = true;
   document.body.classList.remove("on-signin");
 }
-
-export function showSignin() {
-  if (ui.signin) ui.signin.hidden = false;
-  document.body.classList.add("on-signin");
-}

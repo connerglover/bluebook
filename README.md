@@ -100,5 +100,5 @@ public/         static files and the Cloudflare header rules
 docs/           formats, authoring, deployment
 test/           fifteen suites, run with test/run.sh
 course/         AP Calculus BC course material
-shell/          the original single-file runtime — superseded, kept for reference
+skills/         the Claude skill that writes .bbtest files and reads results
 ```

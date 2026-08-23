@@ -1,0 +1,23 @@
+{
+  "skill_name": "bluebook",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "can you make me a practice quiz over chapter 3 of my bio textbook? its the cellular energetics unit - enzymes, respiration, fermentation. my teacher does 6 multiple choice and then 3 free response, and we get about 30 min. i want the multiple choice to grade itself if thats possible",
+      "expected_output": "A .bbtest with two sections (MC + FRQ), a passage or stimulus, at least one figure, a hashed key covering every scorable question, and a separate plaintext key file. Validates clean.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "here's my results file from the calc practice test I just took. how did I do?",
+      "expected_output": "Grading that opens with the disputed question re-checked against the key, then the score, then feedback grouped by topic rather than by question number. The plaintext key appears only at the end.",
+      "files": ["assets/example.bbresult.json"]
+    },
+    {
+      "id": 3,
+      "prompt": "I wrote this test file by hand but the app says it won't load it. can you figure out what's wrong and fix it?",
+      "expected_output": "Runs the validator, reports each error with its location, fixes them, and re-validates until clean.",
+      "files": []
+    }
+  ]
+}

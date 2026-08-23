@@ -12,11 +12,6 @@ export const calcState = {
   ys: ["", "", ""], win: { xmin: -10, xmax: 10, ymin: -10, ymax: 10 },
 };
 
-/* A framed page cannot nest a third-party page, so the TI-84 is only offered
-   when this app is the top-level document. */
-export const EMBEDDED = (() => {
-  try { return window.self !== window.top; } catch (e) { return true; }
-})();
 
 export function applyCalcShift() {
   // Only meaningful when the question is a single column; a split view has

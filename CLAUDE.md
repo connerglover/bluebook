@@ -39,7 +39,7 @@ public/                   _headers, _redirects, robots.txt, ti84.html
 docs/                     the .bbtest and .bbresult specs, authoring guide, deploy
 test/                     fifteen suites, `bash test/run.sh`
 course/                   AP Calc BC specifics: unit map, schedule, style
-shell/                    the old single-file runtime. SUPERSEDED — see below.
+skills/bluebook/          the Claude skill: authors .bbtest files, reads results
 ```
 
 ## Before you change anything
@@ -215,13 +215,6 @@ The short version:
   on. Hosted image URLs are refused on purpose.
 - **The answer key is built separately** at `/author.html` and never sits in
   plaintext in the test file.
-
-## `shell/practice-test-shell.html` is superseded
-
-That file is the original single-file runtime. Every line of it now lives in
-`src/`, and nothing builds from it or tests against it any more. It is kept only
-as a reference during the transition and can be deleted once you are confident
-in the rewrite. **Do not edit it expecting the app to change.**
 
 ## Style
 

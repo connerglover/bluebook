@@ -49,7 +49,3 @@ export function loadMathLive() {
     });
   return mlPromise;
 }
-
-export function katexAvailable() {
-  return typeof renderMathInElement === "function";
-}

@@ -102,8 +102,6 @@ function timeUp() {
   if (hooks.onTimeUp) hooks.onTimeUp();
 }
 
-export function elapsedSeconds() { return state.spent; }
-
 /* The Hide/Show state of the numbers. The keyboard shortcut used to flip a
    different variable (state.clockVisible) than the one paintClock reads, so
    Ctrl+Alt+T silently did nothing; both paths go through here now. */

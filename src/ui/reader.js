@@ -85,5 +85,3 @@ export function wireReader() {
 
   window.addEventListener("resize", () => { if (reader.on) paintReader(); });
 }
-
-export function readerOn() { return reader.on; }
