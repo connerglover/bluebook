@@ -1,4 +1,4 @@
-# Bluebook practice-test runtime
+# Bluebook Simulator
 
 A practice-test app styled after College Board's Bluebook exam software, hosted
 as a static site. You give it a small `.bbtest` file; it gives you a timed,
