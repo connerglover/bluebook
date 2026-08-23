@@ -1,0 +1,11 @@
+# Cloudflare Pages.
+#
+# The app is fully static: `npm run build` writes dist/ and that is the whole
+# deployment. There is no Worker, no Function, and no server-side state — the
+# test file and the results file both live on the test-taker's machine.
+#
+# Change `name` to whatever the Pages project is called in your dashboard.
+
+name = "bluebook"
+compatibility_date = "2026-08-22"
+pages_build_output_dir = "dist"

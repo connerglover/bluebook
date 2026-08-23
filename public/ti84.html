@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TI-84 Plus CE</title>
+<!--
+  The TI-84 emulator, on its own page.
+
+  It used to run in an <iframe srcdoc>. That worked, but a srcdoc frame
+  INHERITS the parent document's Content-Security-Policy, so the moment the app
+  got a real CSP the emulator's third-party script would be blocked and the
+  calculator would die silently. A separate page gets its own policy from
+  _headers, which keeps the exam page's CSP strict.
+
+  What has not changed: TestNav's tn.css and TI's engine run in their own
+  document. Injecting tn.css into the exam page restyled the entire app — the
+  top-bar tools vanished, the page grew, controls took on TestNav's look. Never
+  inject a foreign application stylesheet into the exam document.
+
+  Nothing proprietary is bundled here; the engine, ROM and faceplate are all
+  fetched from Texas Instruments' own host at runtime.
+-->
+<link rel="stylesheet" href="https://mn.testnav.com/client/public/stylesheets/tn.css">
+<style>
+  html, body { margin: 0; padding: 0 !important; background: transparent; overflow: hidden; }
+  .calculatorDiv { outline: none !important; margin: 0 auto !important; position: static !important; }
+</style>
+</head>
+<body>
+<div id="calculatorDiv"></div>
+
+<script src="https://mn.testnav.com/client/texasinstruments/js/ELG-min.js"
+        onerror="parent.postMessage({ti:'fail',why:'engine script blocked'},'*')"></script>
+<script>
+(function () {
+  var send = function (m) { try { parent.postMessage(m, "*"); } catch (e) {} };
+
+  var ROM  = "https://mn.testnav.com/client/texasinstruments/bin/No_AppsCE.h84statej#.h84statej";
+  var FACE = "https://mn.testnav.com/client/texasinstruments/images/TI84CE_touch.svg#.svg";
+
+  try {
+    /* The engine picks the loader by file extension, so the URLs carry a
+       "#.h84statej" / "#.svg" hint. Those fragments must not reach the wire —
+       strip them on the way out. */
+    XMLHttpRequest.prototype.open = new Proxy(XMLHttpRequest.prototype.open, {
+      apply: function (t, a, g) {
+        if (typeof g[1] === "string") g[1] = g[1].replace(/#.*$/, "");
+        return Reflect.apply(t, a, g);
+      }
+    });
+
+    if (typeof TI84PCE !== "function") {
+      send({ ti: "fail", why: "engine did not register TI84PCE" });
+      return;
+    }
+    new TI84PCE({ ROMLocation: ROM, FaceplateLocation: FACE });
+
+    /* Report the rendered size back so the host can size its shell. */
+    var n = 0;
+    var t = setInterval(function () {
+      var d = document.getElementById("calculatorDiv");
+      var w = d && d.offsetWidth, h = d && d.offsetHeight;
+      if (w > 40 && h > 40) { clearInterval(t); send({ ti: "ok", w: w, h: h }); }
+      else if (++n > 60) { clearInterval(t); send({ ti: "fail", why: "the calculator never rendered" }); }
+    }, 250);
+  } catch (e) {
+    send({ ti: "fail", why: String((e && e.message) || e) });
+  }
+})();
+</script>
+</body>
+</html>

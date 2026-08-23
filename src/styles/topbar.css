@@ -1,0 +1,28 @@
+/* ---------------- top bar ---------------- */
+.topbar{flex:none;position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:12px;padding:14px 22px 10px;background:var(--bar)}
+/* Pin the columns. Hiding the clock takes it out of the grid, and auto
+   placement then slides the tools into the empty middle column. */
+.topbar > :first-child{grid-column:1}
+.clock-wrap{grid-column:2}
+.tools{grid-column:3}
+.topbar::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:repeating-linear-gradient(to right,#1b1b1b 0 20px,transparent 20px 26px)}
+.sec-title{font-size:18px;font-weight:700;letter-spacing:-.01em;margin:0 0 3px}
+.dir-btn{display:inline-flex;align-items:center;gap:6px;background:none;border:none;padding:2px 0;font-size:14px}
+.dir-btn svg{width:11px;height:7px}
+.dir-btn:disabled{opacity:.42;cursor:not-allowed}
+.dir-btn:disabled:hover{text-decoration:none}
+.clock-wrap{text-align:center;min-width:110px}
+.clock{font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.15;min-height:26px;display:flex;align-items:center;justify-content:center}
+.clock svg{width:21px;height:23px}
+.clock.low{color:var(--flag)}
+.clock-toggle{background:#fff;border:1px solid #9aa3b8;border-radius:14px;font-size:12px;font-weight:600;padding:1px 14px;margin-top:3px}
+.tools{display:flex;justify-content:flex-end;align-items:flex-end;gap:6px}
+.tool{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;padding:7px 12px 9px;font-size:12.5px;font-weight:600;border-radius:7px 7px 0 0;min-width:62px}
+.tool::after{content:"";position:absolute;left:10px;right:10px;bottom:2px;height:2.5px;border-radius:2px;background:transparent}
+.tool:hover{background:#fff}
+.tool:hover::after{background:#1b1b1b}
+.tool[aria-pressed="true"]{background:#fff}
+.tool[aria-pressed="true"]::after{background:var(--blue)}
+.tool .ic{height:21px;display:grid;place-items:center}
+.tool .ic svg{width:21px;height:21px}
+

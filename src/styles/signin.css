@@ -1,0 +1,114 @@
+/* ---------------- sign in ---------------- */
+:root{
+  --si-blue:#3f4ec7;
+  --si-blue-deep:#3341ad;
+  --si-art:rgba(255,255,255,.13);
+}
+
+body.on-signin{background:var(--si-blue);overflow:auto}
+
+.signin{
+  position:relative;z-index:1;min-height:100dvh;
+  display:flex;flex-direction:column;align-items:center;
+  padding:26px 20px 40px;background:var(--si-blue);color:#fff;
+  font-family:var(--sans);
+}
+
+/* the illustration band across the bottom */
+.si-art{
+  position:fixed;left:0;right:0;bottom:0;width:100%;height:230px;
+  color:var(--si-art);pointer-events:none;z-index:0;
+}
+.signin>*{position:relative;z-index:1}
+
+.si-device{
+  align-self:flex-end;display:inline-flex;align-items:center;gap:9px;
+  background:var(--si-blue-deep);color:#fff;border:1.5px solid rgba(255,255,255,.5);
+  border-radius:999px;padding:11px 22px;font-size:15.5px;font-weight:600;
+}
+.si-device svg{width:20px;height:20px}
+.si-device:hover{background:#2c3a9c}
+
+.si-mark{display:flex;align-items:flex-start;gap:10px;margin:26px 0 22px}
+.si-logo{width:44px;height:44px;flex:none}
+.si-word{font-size:40px;font-weight:800;letter-spacing:-.6px;line-height:1}
+.si-tm{font-size:13px;font-weight:600;margin-left:1px}
+
+.si-card{
+  width:100%;max-width:456px;background:#fff;color:var(--ink);
+  border-radius:16px;padding:34px 32px 28px;
+  box-shadow:0 14px 40px rgba(0,0,0,.18);
+}
+.si-card h1{margin:0 0 22px;text-align:center;font-size:31px;font-weight:800}
+
+.si-label{margin:0 0 7px;font-size:13.5px;font-weight:700;letter-spacing:.02em;
+  text-transform:uppercase;color:var(--ink-soft)}
+.si-input{
+  width:100%;font:inherit;font-size:16.5px;padding:12px 14px;
+  border:1.5px solid #9aa0ad;border-radius:8px;background:#fff;color:var(--ink);
+}
+.si-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+
+.si-primary{
+  width:100%;margin-top:20px;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--yellow);color:#1b1b1b;border:0;border-radius:999px;
+  padding:15px 20px;font-size:16.5px;font-weight:700;
+}
+.si-primary svg{width:21px;height:21px}
+.si-primary:hover{background:#f0c800}
+
+.si-secondary{
+  width:100%;display:flex;flex-direction:column;align-items:center;gap:3px;
+  background:#fff;color:var(--ink);border:1.5px solid #6d7482;border-radius:999px;
+  padding:13px 20px;font-size:16px;font-weight:700;text-align:center;
+}
+.si-secondary small{font-weight:500;font-size:12.5px;color:var(--ink-soft)}
+.si-secondary:hover{background:#f4f6fb}
+
+.si-drop{margin:13px 0 0;text-align:center;font-size:13.5px;color:var(--ink-soft)}
+.si-drop code{font-size:12.5px;background:#eef0f5;padding:1px 5px;border-radius:4px}
+
+.si-or{display:flex;align-items:center;gap:12px;margin:20px 0 16px;color:#8b91a0;font-size:13px}
+.si-or::before,.si-or::after{content:"";flex:1;height:1px;background:#dcdfe6}
+
+.si-link{
+  display:block;margin:11px auto 0;background:none;border:0;padding:2px 6px;
+  font-size:13.5px;color:var(--blue);text-decoration:underline;
+}
+.si-links{margin-top:20px;text-align:center}
+.si-links a{font-size:14px;color:var(--blue)}
+
+.si-err{
+  margin:12px 0 0;padding:11px 13px;border-radius:8px;
+  background:var(--redbg);color:var(--redink);font-size:14px;
+}
+.si-err strong{display:block;font-weight:700}
+.si-detail{
+  display:block;margin-top:6px;font-family:ui-monospace,Menlo,Consolas,monospace;
+  font-size:12px;white-space:pre-wrap;opacity:.9;max-height:170px;overflow:auto;
+}
+
+.si-report{
+  width:100%;max-width:456px;margin-top:16px;background:#fff;color:var(--ink);
+  border-radius:14px;padding:20px 24px;box-shadow:0 10px 28px rgba(0,0,0,.16);
+}
+.si-report h2{margin:0 0 12px;font-size:17px}
+.si-report ul{list-style:none;margin:0;padding:0}
+.si-report li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;font-size:14.5px}
+.si-report .dot{width:10px;height:10px;border-radius:50%;margin-top:6px;flex:none}
+.si-report .good .dot{background:#2e9e6b}
+.si-report .bad .dot{background:#c8102e}
+
+.si-disclaimer{
+  max-width:520px;margin:26px auto 0;text-align:center;
+  font-size:12px;line-height:1.6;color:rgba(255,255,255,.72);
+}
+
+/* whole-page drop target */
+.signin.dragging::after{
+  content:"Drop your test file";
+  position:fixed;inset:14px;z-index:5;
+  display:flex;align-items:center;justify-content:center;
+  border:3px dashed rgba(255,255,255,.75);border-radius:18px;
+  background:rgba(41,54,163,.72);font-size:23px;font-weight:700;color:#fff;
+}

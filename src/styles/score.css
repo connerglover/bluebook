@@ -1,0 +1,15 @@
+/* ---------------- score panel on the finish screen ---------------- */
+/* Only rendered when meta.scoreReveal asks for it. */
+.scorecard{
+  margin:0 0 22px;padding:18px 20px;border-radius:10px;
+  background:var(--blue-soft);border:1px solid #c7d4f2;text-align:center;
+}
+.scorecard h2{
+  margin:0 0 6px;font-size:13px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--navy);
+}
+.scorebig{margin:0;font-size:34px;line-height:1.15;color:var(--navy)}
+.scorebig strong{font-size:44px;font-weight:800}
+.scorepct{font-size:20px;color:var(--ink-soft)}
+.scorenote{margin:8px 0 0;font-size:14px;color:var(--ink-soft)}
+.filehint{margin:10px 0 0;font-size:12.5px;color:var(--ink-soft);word-break:break-all}

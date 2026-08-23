@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Practice Test</title>
+<meta name="description" content="An unofficial practice-test runtime. Load a .bbtest file and sit the exam.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===================== SIGN IN =====================
+     Shown until a .bbtest is loaded. The exam markup below stays in the
+     document the whole time but is inert until the runtime boots. -->
+<div class="signin" id="signin">
+  <button class="si-device" id="siDevice" type="button">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4.5" width="14" height="9" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M1.5 16.5h17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    Test Your Device
+  </button>
+
+  <div class="si-mark">
+    <svg viewBox="0 0 44 44" aria-hidden="true" class="si-logo">
+      <path d="M9 4 L20 21 L13 22 L18 33 L14.5 34.5 L9.5 23.5 L4 28 Z" fill="#fff"/>
+      <path d="M31 6.5l1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5z" fill="#fff"/>
+    </svg>
+    <span class="si-word">Bluebook</span><sup class="si-tm">&trade;</sup>
+  </div>
+
+  <div class="si-card">
+    <h1 id="siHeading">Sign In</h1>
+
+    <form id="siForm" novalidate>
+      <label class="si-label" for="siName">Your name</label>
+      <input class="si-input" id="siName" name="name" type="text" autocomplete="name"
+             placeholder="Type your name" maxlength="60" spellcheck="false">
+      <p class="si-err" id="siNameErr" hidden>Enter your name to continue.</p>
+
+      <button class="si-primary" id="siPick" type="button">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 15.5V4.5a1.4 1.4 0 011.4-1.4h4.3l1.6 2h4.3A1.4 1.4 0 0117 6.5v9a1.4 1.4 0 01-1.4 1.4H5.4A1.4 1.4 0 014 15.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        Choose your test file
+      </button>
+      <input type="file" id="siFile" accept=".bbtest,.json,application/json" hidden>
+
+      <p class="si-drop" id="siDrop">or drag a <code>.bbtest</code> file anywhere on this page</p>
+      <p class="si-err" id="siFileErr" hidden></p>
+    </form>
+
+    <div class="si-resume" id="siResume" hidden>
+      <div class="si-or"><span>OR</span></div>
+      <button class="si-secondary" id="siResumeBtn" type="button">
+        <span id="siResumeLabel">Resume your test</span>
+        <small id="siResumeSub"></small>
+      </button>
+      <button class="si-link" id="siDiscard" type="button">Discard saved progress</button>
+    </div>
+
+    <div class="si-links">
+      <a href="./author.html">I&rsquo;m writing a test</a>
+    </div>
+  </div>
+
+  <div class="si-report" id="siReport" hidden aria-live="polite"></div>
+
+  <p class="si-disclaimer">
+    Unofficial practice tool. Not affiliated with, endorsed by, or connected to
+    College Board. &ldquo;Bluebook&rdquo; is a trademark of College Board, used here only
+    to describe the exam interface this tool imitates.
+  </p>
+
+  <svg class="si-art" viewBox="0 0 1200 220" aria-hidden="true" preserveAspectRatio="xMidYMax slice">
+    <g fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round">
+      <rect x="40" y="60" width="240" height="150" rx="8"/>
+      <rect x="70" y="90" width="80" height="60" rx="5"/>
+      <rect x="170" y="90" width="80" height="26" rx="5"/>
+      <rect x="170" y="128" width="80" height="22" rx="5"/>
+      <rect x="60" y="168" width="200" height="14" rx="5"/>
+      <rect x="330" y="40" width="150" height="110" rx="8"/>
+      <path d="M355 70h100M355 92h100M355 114h64"/>
+      <rect x="520" y="105" width="70" height="95" rx="8"/>
+      <path d="M534 122h42M534 146h12M556 146h12M578 146h12M534 168h12M556 168h12M578 168h12"/>
+      <path d="M630 200V110a26 26 0 0126-26h44v116h-44a26 26 0 00-26 26z"/>
+      <path d="M700 200V84h44a26 26 0 0126 26v90a26 26 0 00-26-26z"/>
+      <circle cx="390" cy="185" r="30"/><path d="M390 168v17l11 8"/>
+      <path d="M820 200V96l30-26 30 26v104z"/><path d="M812 200h76"/>
+      <path d="M930 200v-70h140v70z"/><path d="M920 130l80-46 80 46z"/>
+      <path d="M960 200v-40h20v40M1020 200v-40h20v40"/>
+      <path d="M1110 96a22 22 0 1144 0 22 22 0 01-44 0z"/>
+      <path d="M1096 200c0-30 16-48 36-48s36 18 36 48z"/>
+    </g>
+  </svg>
+</div>
+
+<!-- ===================== EXAM ===================== -->
+<div class="app" id="app" hidden>
+  <div class="banner-alert" id="alertBanner" hidden></div>
+
+  <div class="minibar" id="minibar" hidden>
+    <button type="button" id="homeBtn">Return to the start</button>
+  </div>
+
+  <header class="topbar" id="topbar">
+    <div>
+      <h1 class="sec-title" id="secTitle">Practice Test</h1>
+      <button class="dir-btn" id="dirBtn" type="button">Directions
+        <svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="clock-wrap" id="clockWrap" hidden>
+      <div class="clock" id="clock">0:00</div>
+      <button class="clock-toggle" id="clockToggle" type="button">Hide</button>
+    </div>
+    <div class="tools" id="tools"></div>
+  </header>
+
+  <div class="banner-preview" id="previewBanner" hidden></div>
+  <div class="banner-nocalc" id="nocalcBanner" hidden>
+    <span class="end"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="1.5" width="14" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2 18L18 2" stroke="currentColor" stroke-width="2"/></svg> NO CALCULATOR ALLOWED</span>
+    <span class="mid" id="nocalcMid"></span>
+    <span class="end">NO CALCULATOR ALLOWED <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="1.5" width="14" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2 18L18 2" stroke="currentColor" stroke-width="2"/></svg></span>
+  </div>
+
+  <div class="pagetabs" id="pageTabs" hidden></div>
+
+  <main id="main">
+    <div class="split" id="split">
+      <section class="pane pane-left zoomable" id="paneLeft" hidden></section>
+      <aside class="notespane" id="notesPane" hidden aria-label="Highlights and notes">
+        <div class="notespane-head"><span>Highlights &amp; Notes</span>
+          <button class="paneclose" id="notesClose" type="button" aria-label="Close notes">
+            <svg viewBox="0 0 20 20"><path d="M5 5l10 10M15 5L5 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button></div>
+        <div id="notesList"></div>
+      </aside>
+      <div class="divider" id="divider" hidden role="separator" aria-label="Resize panes"><span class="grabber" aria-hidden="true"><i></i><i></i></span></div>
+      <section class="pane pane-right zoomable" id="paneRight"><div class="solo" id="solo"></div></section>
+      <aside class="refpanel" id="refPanel" hidden role="region" aria-labelledby="refTitle">
+        <div class="ref-head">
+          <h2 id="refTitle">Reference</h2>
+          <div class="grp">
+            <button type="button" id="refWide" aria-label="Expand reference">
+              <svg viewBox="0 0 20 20"><path d="M12 3h5v5M8 17H3v-5M17 3l-6 6M3 17l6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button type="button" id="refClose" aria-label="Close reference">
+              <svg viewBox="0 0 20 20"><path d="M5 5l10 10M15 5L5 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="bb-tools"><button type="button" id="refExpand">Expand All</button><span class="sep">|</span><button type="button" id="refCollapse">Collapse All</button></div>
+        <div class="ref-body" id="refBody"></div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="bottombar" id="bottombar" hidden>
+    <div class="who" id="who" title="Double-click to change the name on this test" tabindex="0"></div>
+    <div class="navwrap" style="display:flex;justify-content:center">
+      <button class="navtoggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navpop">
+        <span id="navLabel">Question 1 of 1</span>
+        <svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="navright">
+      <button class="btn ghost" id="backBtn" type="button">Back</button>
+      <button class="btn" id="nextBtn" type="button">Next</button>
+    </div>
+  </footer>
+</div>
+
+<button class="backdrop" id="backdrop" hidden aria-label="Close menu"></button>
+<div class="breakscreen" id="breakScreen" hidden>
+  <div class="bl">
+    <div class="breakbox"><div class="lab">Remaining Break Time:</div><div class="num" id="breakClock">10:00</div></div>
+    <div style="margin-top:22px"><button class="btn gold" id="breakResume" type="button">Resume Testing</button></div>
+  </div>
+  <div>
+    <h2>Take a Break</h2>
+    <p style="margin:0 0 12px;color:#d8d8d8">This clock is here so a practice run feels like the real thing. Your answers are kept while you are away.</p>
+    <ol>
+      <li>Do not close this window.</li>
+      <li>Leave your work on screen; nothing is submitted.</li>
+      <li>Come back and press Resume Testing when you are ready.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="navpop" id="navpop" hidden role="dialog" aria-label="Question navigator">
+  <button class="xbtn" id="navClose" type="button" aria-label="Close">&times;</button>
+  <h2 id="navpopTitle">Questions</h2>
+  <div class="legend" id="navLegend"></div>
+  <div class="grid" id="navGrid"></div>
+  <div class="center"><button class="btn ghost" id="toReview" type="button">Go to Review Page</button></div>
+</div>
+
+<!-- generic confirm -->
+<div class="scrim" id="timeScrim" hidden>
+  <div class="sheet narrow" role="dialog" aria-modal="true" aria-labelledby="timeTitle">
+    <div class="sheet-head"><h2 id="timeTitle">Time is up for this section</h2></div>
+    <div class="sheet-body"><p style="margin:0;color:var(--ink-soft)">Nothing was submitted. You can keep working with the clock at zero, or stop here and build your results.</p></div>
+    <div class="modal-actions">
+      <button class="btn quiet" id="timeStay" type="button">Keep working</button>
+      <button class="btn" id="timeFinish" type="button">Finish and build my results</button>
+    </div>
+  </div>
+</div>
+
+<div class="scrim" id="askScrim" hidden>
+  <div class="sheet narrow" role="dialog" aria-modal="true" aria-labelledby="askTitle">
+    <div class="sheet-head"><h2 id="askTitle"></h2></div>
+    <div class="sheet-body"><p id="askBody" style="margin:0;color:var(--ink-soft)"></p></div>
+    <div class="modal-actions">
+      <button class="btn quiet" id="askNo" type="button">Cancel</button>
+      <button class="btn" id="askYes" type="button">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- directions -->
+<div class="scrim panel" id="dirScrim" hidden>
+  <span class="panel-caret" aria-hidden="true"></span>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="dirTitle">
+    <div class="sheet-body serifed" id="dirBody"></div>
+    <div class="sheet-foot"><button class="btn gold" id="dirClose" type="button">Close</button></div>
+  </div>
+</div>
+
+<!-- keyboard shortcuts -->
+<div class="scrim" id="kbdScrim" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="kbdTitle">
+    <div class="sheet-head"><h2 id="kbdTitle">Keyboard shortcuts</h2><button class="xbtn" id="kbdClose" type="button" aria-label="Close">&times;</button></div>
+    <div class="sheet-body" id="kbdBody"></div>
+  </div>
+</div>
+
+<!-- highlights & notes list -->
+<div class="scrim" id="hlScrim" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="hlTitle">
+    <div class="sheet-head"><h2 id="hlTitle">Highlights &amp; notes</h2><button class="xbtn" id="hlClose" type="button" aria-label="Close">&times;</button></div>
+    <div class="sheet-body" id="hlBody"></div>
+  </div>
+</div>
+
+<!-- line reader -->
+<div class="reader" id="reader" hidden>
+  <div class="shade" id="shTop"></div>
+  <div class="shade" id="shBot"></div>
+  <div class="shade" id="shLeft"></div>
+  <div class="shade" id="shRight"></div>
+  <div class="slit" id="slit"></div>
+  <div class="bar" id="readerBar">
+    <span class="rl-pad"></span>
+    <span class="grip" id="readerGrip" title="Drag to move">
+      <svg viewBox="0 0 26 10"><circle cx="3" cy="3" r="1.5" fill="currentColor"/><circle cx="9" cy="3" r="1.5" fill="currentColor"/><circle cx="15" cy="3" r="1.5" fill="currentColor"/><circle cx="21" cy="3" r="1.5" fill="currentColor"/><circle cx="3" cy="7.5" r="1.5" fill="currentColor"/><circle cx="9" cy="7.5" r="1.5" fill="currentColor"/><circle cx="15" cy="7.5" r="1.5" fill="currentColor"/><circle cx="21" cy="7.5" r="1.5" fill="currentColor"/></svg>
+    </span>
+    <span class="rl-right">
+    <button type="button" id="readerWidth" title="Toggle width" aria-label="Toggle reader width">
+      <svg viewBox="0 0 20 20"><path d="M2 6v8M18 6v8M4 10h12M6 7.5L3.6 10 6 12.5M14 7.5L16.4 10 14 12.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button type="button" id="readerOff" title="Close" aria-label="Close line reader">
+      <svg viewBox="0 0 20 20"><path d="M5 5l10 10M15 5L5 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    </span>
+  </div>
+  <div class="foot" id="readerFoot">
+    <button type="button" class="step" id="readerStep" title="Change height" aria-label="Change reader height">
+      <svg viewBox="0 0 20 20"><path d="M5 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="hltoolbar" id="hlToolbar" hidden>
+  <button type="button" class="sw sw-y" data-hl="yellow" title="Yellow" aria-label="Highlight yellow"></button>
+  <button type="button" class="sw sw-b" data-hl="blue" title="Blue" aria-label="Highlight blue"></button>
+  <button type="button" class="sw sw-p" data-hl="pink" title="Pink" aria-label="Highlight pink"></button>
+  <button type="button" class="ul" data-hl="under" title="Underline" aria-label="Underline">U</button>
+  <span class="divide"></span>
+  <button type="button" data-hl="clear" title="Remove highlight" aria-label="Remove highlight"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3.6 5.6h12.8M7.9 5.6V4.2a1.1 1.1 0 011.1-1.1h2a1.1 1.1 0 011.1 1.1v1.4M5.6 5.6l.75 9.9a1.6 1.6 0 001.6 1.5h4.1a1.6 1.6 0 001.6-1.5l.75-9.9M8.4 8.6v5M11.6 8.6v5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button type="button" data-hl="note" title="Add a note" aria-label="Add a note"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.9" y="3.5" width="14.2" height="13" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 7.3v5.4M7.3 10h5.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+</div>
+
+<div class="delpop" id="delPop" hidden role="dialog" aria-label="Delete this note">
+  <p>Delete This Note?</p>
+  <div class="row"><button type="button" id="delNo">No</button><button type="button" id="delYes">Yes</button></div>
+</div>
+
+<section class="ti-shell" id="tiShell" hidden aria-label="TI-84 Plus CE calculator">
+  <div class="ti-grip" id="tiGrip"><span>TI-84 PLUS CE</span>
+    <span class="ti-acts">
+      <button type="button" id="tiPopup" title="Open in a separate window" aria-label="Open the calculator in a separate window">
+        <svg viewBox="0 0 20 20"><path d="M8 3H3.8v13.2H17V12M12 3h5v5M17 3l-7.5 7.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" id="tiClose" aria-label="Close calculator">&times;</button>
+    </span></div>
+  <div class="ti-body" id="tiBody"></div>
+</section>
+
+<section class="calc" id="calc" hidden aria-label="Calculator">
+  <div class="calc-grip" id="calcGrip">
+    <div class="calc-tabs" id="calcTabs">
+      <button class="calc-tab" type="button" data-ctab="home" aria-pressed="true">CALC</button>
+      <button class="calc-tab" type="button" data-ctab="graph" aria-pressed="false">GRAPH</button>
+    </div>
+    <button class="calc-x" id="calcClose" type="button" aria-label="Close calculator">&times;</button>
+  </div>
+  <div class="calc-body" id="calcBody"></div>
+</section>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

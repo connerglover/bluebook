@@ -1,0 +1,21 @@
+{
+  "name": "bluebook",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A Bluebook-style practice-test runtime that loads .bbtest files.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "bash test/run.sh"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.1",
+    "vite": "^5.4.21"
+  },
+  "dependencies": {
+    "katex": "^0.16.47",
+    "mathlive": "^0.110.0"
+  }
+}

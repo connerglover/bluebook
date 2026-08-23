@@ -1,0 +1,117 @@
+/* The key builder. Deliberately plain: it is a tool for the person writing the
+   test, not part of the exam, and it must not look like the exam. */
+:root{
+  --ink:#1b1b1b; --ink-soft:#5a5a5a; --line:#d3d6de; --blue:#2f5fd0;
+  --navy:#1c2c5b; --redbg:#fad4d9; --redink:#7d1620;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+body.author{
+  margin:0;background:#f2f4f8;color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.55;
+}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:3px}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em;
+  background:#e7eaf1;padding:1px 5px;border-radius:4px}
+
+.au-top{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:16px 26px;background:var(--navy);color:#fff;
+}
+.au-top h1{margin:0;font-size:19px;font-weight:700}
+.au-back{color:#cfd8f0;font-size:14.5px}
+
+.au-wrap{max-width:880px;margin:0 auto;padding:26px 20px 60px}
+.au-card{
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:22px 24px;margin-bottom:18px;
+}
+.au-card h2{margin:0 0 8px;font-size:17px}
+.au-hint{margin:0 0 14px;font-size:14.5px;color:var(--ink-soft)}
+.au-hint.au-tight{margin:6px 0 0;font-size:13px}
+
+.au-btn{
+  background:var(--blue);color:#fff;border:0;border-radius:8px;
+  padding:11px 18px;font-size:15px;font-weight:600;
+}
+.au-btn:hover{background:#2450b8}
+.au-btn.ghost{background:#fff;color:var(--blue);border:1.5px solid var(--blue)}
+.au-btn.ghost:hover{background:#eef3fd}
+.au-mini{
+  background:#eef0f5;border:1px solid var(--line);border-radius:7px;
+  padding:7px 13px;font-size:13.5px;
+}
+.au-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.au-count{font-size:13.5px;color:var(--ink-soft);margin-left:auto}
+.au-count.bad{color:var(--redink);font-weight:600}
+.au-ok{font-size:13.5px;color:#20693f;font-weight:600}
+.au-ok.bad{color:var(--redink)}
+
+.au-err{
+  margin:12px 0 0;padding:11px 13px;border-radius:8px;
+  background:var(--redbg);color:var(--redink);font-size:14px;
+}
+.au-err strong{display:block}
+.au-detail{
+  display:block;margin-top:6px;font-family:ui-monospace,Menlo,Consolas,monospace;
+  font-size:12px;white-space:pre-wrap;max-height:180px;overflow:auto;
+}
+.au-loaded{
+  margin-top:14px;padding:12px 14px;border-radius:8px;background:#eef3fd;
+  border:1px solid #c7d4f2;font-size:14.5px;
+}
+.au-loaded span{display:block;font-size:13.5px;color:var(--ink-soft);margin-top:3px}
+.au-loaded .au-warn{color:#8a5a00}
+
+.au-rows{border-top:1px solid var(--line)}
+.au-row{
+  display:grid;grid-template-columns:36px 1fr 190px 62px;gap:12px;align-items:center;
+  padding:9px 0;border-bottom:1px solid #eceef3;
+}
+.au-n{font-weight:700;color:var(--ink-soft);text-align:right;font-size:14px}
+.au-meta{min-width:0;display:flex;flex-direction:column;gap:1px}
+.au-type{font-size:12px;color:var(--ink-soft)}
+.au-prompt{
+  font-size:13px;color:var(--ink-soft);white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.au-ans{
+  font:inherit;font-size:15px;padding:8px 10px;border:1.5px solid #9aa0ad;
+  border-radius:7px;width:100%;
+}
+.au-ans:focus{outline:none;border-color:var(--blue)}
+.au-ans.bad{border-color:#c8102e;background:#fff6f7}
+.au-state{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px}
+.au-state.good{color:#20693f}
+.au-state.bad{color:#c8102e;font-weight:700}
+
+.au-paste{margin:0 0 16px;padding:14px;background:#f7f8fb;border-radius:8px}
+.au-paste label{display:block;font-size:13.5px;color:var(--ink-soft);margin-bottom:6px}
+.au-paste textarea{
+  width:100%;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;
+  padding:10px;border:1px solid var(--line);border-radius:7px;margin-bottom:10px;
+}
+
+.au-reveal{margin-bottom:16px}
+.au-reveal label{display:block;font-size:13.5px;font-weight:600;margin-bottom:6px}
+.au-reveal select{
+  font:inherit;font-size:14.5px;padding:9px 10px;width:100%;max-width:520px;
+  border:1.5px solid #9aa0ad;border-radius:7px;background:#fff;
+}
+.au-out{
+  width:100%;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;
+  line-height:1.5;padding:12px;border:1px solid var(--line);border-radius:8px;
+  background:#fbfbfd;resize:vertical;
+}
+.au-note{background:#fffaf0;border-color:#e8d9b8}
+.au-note p{margin:0 0 10px;font-size:14.5px}
+.au-note p:last-child{margin-bottom:0}
+
+@media (max-width:720px){
+  .au-row{grid-template-columns:30px 1fr;gap:8px}
+  .au-row .au-ans{grid-column:1 / -1}
+  .au-row .au-state{grid-column:1 / -1}
+  .au-prompt{white-space:normal}
+}

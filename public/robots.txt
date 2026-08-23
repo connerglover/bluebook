@@ -1,0 +1,3 @@
+# A personal study tool, not something that wants indexing.
+User-agent: *
+Disallow: /

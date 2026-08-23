@@ -1,0 +1,21 @@
+/* ---------------- shared passages ---------------- */
+/* A passage bound to a run of questions keeps its own scroll position while
+   you move between them, so it is styled as a document rather than as a
+   per-question stimulus. */
+.passage-title{
+  margin:0 0 14px;font-family:var(--serif);font-size:20px;font-weight:700;
+  line-height:1.3;
+}
+.passage-body{font-family:var(--serif);font-size:17px;line-height:1.72}
+.passage-body p{margin:0 0 15px}
+.passage-body p:last-child{margin-bottom:0}
+.passage-body blockquote{
+  margin:0 0 15px;padding:2px 0 2px 16px;border-left:3px solid var(--line);
+  color:var(--ink-soft);
+}
+.passage-body h3{margin:20px 0 9px;font-size:16px}
+.passage-body em{font-style:italic}
+/* Numbered source lines, the way a close-reading passage prints them. */
+.passage-body ol.lines{list-style:decimal;padding-left:34px;color:var(--ink)}
+.passage-body ol.lines li{margin:0 0 4px;padding-left:4px}
+.passage-body ol.lines li::marker{color:var(--ink-soft);font-size:13px}

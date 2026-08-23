@@ -1,0 +1,55 @@
+/* ---------------- modals ---------------- */
+@keyframes dimIn{from{background:rgba(0,0,0,0)}to{background:rgba(0,0,0,.45)}}
+@keyframes riseIn{from{transform:translateY(26px);opacity:0}to{transform:translateY(0);opacity:1}}
+/* riseIn animates transform, and fill-mode:both keeps it, which would wipe
+   out the translateX(-50%) that centres the popover over its button. */
+@keyframes navRise{from{transform:translateX(-50%) translateY(26px);opacity:0}to{transform:translateX(-50%) translateY(0);opacity:1}}
+@keyframes dropIn{from{transform:translateY(-14px);opacity:0}to{transform:translateY(0);opacity:1}}
+.scrim{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.45);display:grid;place-items:center;padding:24px;animation:dimIn .18s ease both}
+.scrim .sheet{animation:riseIn .22s cubic-bezier(.2,.7,.3,1) both}
+.scrim.panel{place-items:start center;padding:0}
+.scrim.panel .sheet{animation:dropIn .2s cubic-bezier(.2,.7,.3,1) both;border-radius:0;max-width:100%;width:100%;margin-top:var(--paneltop,96px);box-shadow:0 16px 40px rgba(0,0,0,.28)}
+.panel-caret{position:absolute;top:calc(var(--paneltop,96px) - 11px);left:78px;z-index:2;width:22px;height:12px;overflow:hidden}
+.panel-caret::after{content:"";position:absolute;left:3px;top:5px;width:16px;height:16px;background:#fff;transform:rotate(45deg);border-radius:3px}
+.moremenu{position:fixed;z-index:88;background:#fff;border-radius:12px;box-shadow:0 14px 44px rgba(0,0,0,.26);padding:12px 8px;width:266px;animation:riseIn .18s cubic-bezier(.2,.7,.3,1) both}
+.moremenu button{display:flex;align-items:center;gap:14px;width:100%;background:none;border:none;padding:11px 14px;border-radius:9px;font-size:15.5px;font-weight:600;color:var(--navy);text-align:left}
+.moremenu button:hover{background:#f0f3fb}
+.moremenu .mi{width:30px;height:30px;flex:none;display:grid;place-items:center;color:#3c3c3c}
+.moremenu .mi svg{width:21px;height:21px}
+.sheet{background:#fff;border-radius:12px;max-width:min(860px,100%);width:100%;max-height:86vh;overflow:auto;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+.sheet.narrow{max-width:460px}
+.sheet-head{position:sticky;top:0;background:#fff;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 22px;border-bottom:1px solid var(--line)}
+.sheet-head h2{margin:0;font-size:19px;font-weight:700}
+.xbtn{background:none;border:none;font-size:22px;line-height:1;padding:2px 8px;border-radius:6px;color:#666}
+.xbtn:hover{background:var(--panel);color:var(--ink)}
+.sheet-body{padding:20px 26px 26px}
+.sheet-body.serifed{font-family:var(--serif);font-size:17px;line-height:1.7;max-width:900px;margin:0 auto}
+.sheet-body.serifed p{margin:0 0 15px}
+.sheet-foot{display:flex;justify-content:flex-end;padding:0 26px 24px;max-width:900px;margin:0 auto}
+.sheet-body h3{font-family:var(--sans);font-size:15px;margin:20px 0 8px}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;padding:0 26px 22px}
+.bb-tools{display:flex;justify-content:flex-end;gap:14px;align-items:center;padding:10px 26px;border-bottom:1px solid #e4e4e4}
+.bb-tools button{background:none;border:none;color:var(--blue);font-size:14.5px;font-weight:700;padding:4px 2px}
+.bb-tools button:hover{text-decoration:underline}
+.bb-tools .sep{color:#ccc}
+.acc{border-top:1px solid #e8e8e8}
+.acc-item{border-bottom:1px solid #e8e8e8}
+.acc-h{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;border:none;padding:15px 26px;font-size:16px;font-weight:700;color:var(--navy);text-align:left}
+.acc-h:hover{background:#f4f7fd}
+.acc-h .pm{width:20px;height:20px;flex:none;position:relative}
+.acc-h .pm::before,.acc-h .pm::after{content:"";position:absolute;background:var(--navy);border-radius:2px;transition:transform .2s}
+.acc-h .pm::before{left:0;right:0;top:9px;height:2.5px}
+.acc-h .pm::after{top:0;bottom:0;left:9px;width:2.5px}
+.acc-h[aria-expanded="true"] .pm::after{transform:scaleY(0)}
+.acc-b{padding:2px 26px 20px;font-size:15px;line-height:1.6}
+.acc-b p{margin:0 0 12px}
+.acc-b table{width:100%;border-collapse:collapse;font-size:14px}
+.acc-b td{border-bottom:1px solid #eee;padding:8px 10px;vertical-align:top}
+.acc-b td:first-child{font-weight:600;width:46%}
+.sheet-foot{display:flex;justify-content:center;padding:18px 26px 24px}
+.kbdtable{width:100%;border-collapse:collapse;font-size:14px}
+.kbdtable th{background:#3d3d3d;color:#fff;text-align:left;padding:9px 12px;font-size:13px}
+.kbdtable td{border-bottom:1px solid #e6e6e6;padding:8px 12px}
+.kbdtable td:first-child{font-weight:600;width:52%}
+kbd{background:var(--panel);border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:1px 6px;font-family:var(--sans);font-size:12.5px}
+

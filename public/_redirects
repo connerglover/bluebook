@@ -1,0 +1,2 @@
+# Two real pages, so no SPA catch-all. Just tidy the /author path.
+/author    /author.html    301

@@ -1,0 +1,116 @@
+/* ============================================================
+   Narrow windows
+
+   Not a phone-only skin: everything below applies to any window under
+   860px. The scarce resource is vertical space, so the top bar sheds
+   its tool labels into one menu, and a question with a passage becomes
+   two pages you flip between rather than two columns squeezed side by
+   side. A stacked "all in one" mode is one tap away for anyone who
+   would rather scroll.
+   ============================================================ */
+@media (max-width:860px){
+  /* --- top bar: one compact row --- */
+  .topbar{grid-template-columns:1fr auto auto;align-items:center;gap:8px;padding:8px 12px 9px}
+  .topbar::after{left:0;right:0}
+  .sec-title{font-size:15px;line-height:1.25;margin:0;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .dir-btn{font-size:12.5px;padding:1px 0}
+  .clock-wrap{grid-column:2;min-width:0}
+  .clock{font-size:18px;min-height:20px}
+  .clock svg{width:17px;height:19px}
+  .clock-toggle{font-size:11px;padding:0 10px;margin-top:1px}
+  .tools{grid-column:3;gap:0}
+  .tool{min-width:44px;padding:6px 8px 8px;font-size:11px}
+  .tool .ic svg{width:20px;height:20px}
+
+  /* --- banners --- */
+  .banner-preview,.banner-nocalc{margin:0 12px;font-size:10px;letter-spacing:.05em;padding:5px 10px}
+  .banner-nocalc .end svg{display:none}
+  .banner-nocalc .end{font-size:9.5px}
+
+  /* --- panes --- */
+  .split{flex-direction:column;min-height:0}
+  .divider{display:none}
+  .pane{padding:16px 14px 32px;scrollbar-gutter:auto}
+  .pane-left{flex:0 0 auto;width:100%;max-height:none}
+  .pane.calcshift{padding-left:14px}
+
+  /* paged: one at a time, flipped with the tabs above */
+  .split.paged .pane-left,.split.paged .pane-right{flex:1 1 auto}
+  .split.paged[data-page="q"] .pane-left{display:none}
+  .split.paged[data-page="stim"] .pane-right{display:none}
+  .split.stacked .pane-left{border-bottom:2px solid #d8d8d8}
+
+  .pagetabs{flex:none;display:flex;align-items:center;gap:6px;padding:8px 12px 0}
+  .pagetabs .seg{flex:1;display:flex;background:#e6e9f2;border-radius:9px;padding:3px}
+  .pagetabs .seg button{flex:1;border:none;background:none;border-radius:7px;padding:8px 6px;font-size:13.5px;font-weight:700;color:#4a4a4a}
+  .pagetabs .seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.16)}
+  .pagetabs .aio{flex:none;width:40px;height:38px;border:1px solid #c9cede;background:#fff;border-radius:9px;display:grid;place-items:center;color:#3c3c3c}
+  .pagetabs .aio[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+  .pagetabs .aio svg{width:18px;height:18px}
+
+  /* --- notes and reference take the screen instead of a column --- */
+  .notespane{position:fixed;inset:0;z-index:82;flex:none;width:100%;padding:0 12px 30px;border:none}
+  .notespane-head{position:sticky;top:0;background:#f4f4f4;display:flex;align-items:center;justify-content:space-between;padding:14px 4px 10px;margin:0 0 8px;z-index:1}
+  .refpanel{position:fixed;inset:0;z-index:88;flex:none;border:none}
+  .refpanel.wide .acc-b{column-count:1}
+  .paneclose{display:grid !important}
+
+  /* --- question chrome --- */
+  .qhead{flex-wrap:wrap;padding-bottom:2px}
+  .qmark{padding:7px 9px;font-size:13px}
+  .abc{margin:4px}
+  .stem,.stimulus{font-size:1.02em}
+  .choice{padding:12px;min-height:56px;font-size:1em}
+  .choice .letter{width:28px;height:28px}
+  .strikebtn{width:30px;height:30px}
+  .fieldrow.tight{flex-direction:column;align-items:stretch;gap:6px}
+  .fieldrow.tight .flabel{min-width:0}
+  .sel{min-width:0;width:100%}
+  .editor-bar{gap:0}
+  .editor-bar button{width:34px;height:34px}
+  .mathpal button{min-width:38px;height:34px}
+
+  /* --- bottom bar: Back, menu, Next on one line --- */
+  .bottombar{display:flex;align-items:center;gap:8px;padding:8px 10px}
+  .bottombar::before{left:0;right:0}
+  .who{display:none}
+  .navwrap{order:2;flex:1;min-width:0}
+  .navright{display:contents}
+  #backBtn{order:1}
+  #nextBtn{order:3}
+  .navtoggle{width:100%;justify-content:center;padding:11px 8px;font-size:14px}
+  .navright .btn{padding:11px 16px;font-size:14px;white-space:nowrap}
+
+  /* --- overlays --- */
+  .navpop{width:calc(100vw - 16px);left:50% !important;--navcaret:50%;padding:16px 14px 18px}
+  .navscroll{max-height:52vh}
+  .grid{gap:20px 14px}
+  .ti-shell{left:8px !important;right:8px;width:auto !important;max-width:none;max-height:calc(100dvh - 96px)}
+  .ti-body{overflow:auto;max-height:calc(100dvh - 128px)}
+  .ti-body iframe{max-width:100%}
+  .calc{left:8px !important;right:8px;width:auto;max-height:calc(100dvh - 96px)}
+  .calc-body{max-height:calc(100dvh - 130px)}
+  .sci{width:auto}
+  .sheet{max-height:92vh}
+  .acc-h,.acc-b{padding-left:16px;padding-right:16px}
+  .bb-tools{padding-left:16px;padding-right:16px}
+  .moremenu{width:calc(100vw - 24px);max-width:300px}
+  .reviewcard{padding:16px 14px 20px}
+  .previewwrap{padding-top:2px}
+  .prevcard{padding:20px 18px 22px}
+  .prevrow{gap:14px;margin-bottom:20px}
+  .intro h1,.previewwrap h1{font-size:25px}
+  .reviewhead h1{font-size:27px}
+  .finish h1{font-size:27px}
+}
+
+@media (max-width:560px){
+  .topbar{grid-template-columns:1fr auto}
+  .clock-wrap{grid-column:2}
+  .tools{grid-column:1/-1;justify-content:flex-end;border-top:1px solid rgba(0,0,0,.07);padding-top:4px;margin-top:2px}
+  .sec-title{font-size:14px}
+  .banner-nocalc .end{display:none}
+  .banner-nocalc .mid{text-align:center}
+  .navright .btn{padding:11px 12px}
+  .pane{padding:14px 11px 28px}
+}

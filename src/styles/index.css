@@ -1,0 +1,26 @@
+/* Order is load-bearing. The original shell relied on source order in several
+   places (see the .hltoolbar/.sw-y specificity note in highlight.css), so these
+   are imported in exactly the order they appeared in the single-file shell.
+   narrow.css holds the max-width:860px overrides and must stay last. */
+@import "./base.css";
+@import "./topbar.css";
+@import "./banners.css";
+@import "./layout.css";
+@import "./question.css";
+@import "./qnotes.css";
+@import "./highlight.css";
+@import "./reader.css";
+@import "./bottombar.css";
+@import "./nav.css";
+@import "./buttons.css";
+@import "./modals.css";
+@import "./calculator.css";
+@import "./screens.css";
+
+/* New in the hosted app. */
+@import "./signin.css";
+@import "./figures.css";
+@import "./passages.css";
+@import "./score.css";
+
+@import "./narrow.css";

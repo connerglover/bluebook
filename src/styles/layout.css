@@ -1,0 +1,16 @@
+/* ---------------- main ---------------- */
+main{flex:1 1 auto;overflow:hidden;display:flex;min-height:0}
+.split{flex:1;display:flex;min-width:0}
+.pane{overflow-y:scroll;overflow-x:hidden;scrollbar-gutter:stable;padding:22px 26px 60px;min-width:0;transition:padding-left .28s cubic-bezier(.2,.7,.3,1)}
+.pane.calcshift{padding-left:calc(var(--calcw,360px) + 44px)}
+.pane-left{flex:0 0 50%}
+.pane-right{flex:1}
+.solo{max-width:790px;margin:0 auto;width:100%}
+.divider{flex:none;width:2px;background:#9a9a9a;position:relative;cursor:col-resize;touch-action:none}
+.grabber{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:15px;height:40px;border-radius:4px;background:#9a9a9a;display:flex;align-items:center;justify-content:center;gap:3px}
+.divider:hover .grabber{background:#6f6f6f}
+.grabber i{width:0;height:0;border-top:4px solid transparent;border-bottom:4px solid transparent;display:block}
+.grabber i:first-child{border-right:5px solid #fff}
+.grabber i:last-child{border-left:5px solid #fff}
+.zoomable{font-size:calc(17px * var(--zoom))}
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Answer key builder</title>
+<meta name="description" content="Turn a plaintext answer key into the hashed key block a .bbtest carries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+</head>
+<body class="author">
+
+<header class="au-top">
+  <h1>Answer key builder</h1>
+  <a class="au-back" href="./">Back to the test app</a>
+</header>
+
+<main class="au-wrap">
+
+  <section class="au-card">
+    <h2>1. Load the test</h2>
+    <p class="au-hint">
+      Pick the <code>.bbtest</code> you are keying. It is read in this page only &mdash;
+      nothing is uploaded, and the plaintext answers never leave your browser.
+    </p>
+    <button class="au-btn" id="pickBtn" type="button">Choose a .bbtest file</button>
+    <input type="file" id="fileInput" accept=".bbtest,.json,application/json" hidden>
+    <p class="au-err" id="loadErr" hidden></p>
+    <div class="au-loaded" id="loaded" hidden></div>
+  </section>
+
+  <section class="au-card" id="keyCard" hidden>
+    <h2>2. Enter the answers</h2>
+    <p class="au-hint">
+      Only the types with a fixed set of choices can be scored, so only those are listed.
+      Use letters: <code>B</code> for multiple choice, <code>A,C</code> for select-all,
+      <code>1-A, 2-C</code> for matching. Leave a row blank to skip that question &mdash;
+      it will not count toward the score.
+    </p>
+    <div class="au-actions">
+      <button class="au-mini" id="fillDemo" type="button">Paste a list instead</button>
+      <span class="au-count" id="keyCount"></span>
+    </div>
+    <div class="au-paste" id="pasteBox" hidden>
+      <label for="pasteArea">One answer per line, in question order, or <code>id: answer</code> pairs.</label>
+      <textarea id="pasteArea" rows="6" spellcheck="false" placeholder="q1: B&#10;q2: A,C&#10;q3: D"></textarea>
+      <button class="au-mini" id="applyPaste" type="button">Apply to the rows below</button>
+    </div>
+    <div class="au-rows" id="rows"></div>
+  </section>
+
+  <section class="au-card" id="outCard" hidden>
+    <h2>3. Take the hashed key</h2>
+    <p class="au-hint">
+      This replaces (or becomes) the <code>"key"</code> block in your <code>.bbtest</code>.
+      You can also let the page write the whole file for you.
+    </p>
+
+    <div class="au-reveal">
+      <label for="revealSel">What the student sees at the end</label>
+      <select id="revealSel">
+        <option value="none">Nothing — the score only goes into the results file</option>
+        <option value="total">The total, but not which ones were missed</option>
+        <option value="detailed">The total and the question numbers missed</option>
+      </select>
+      <p class="au-hint au-tight">
+        Detailed lets a student learn the key by elimination on a retake. Use it for a
+        one-off review, not for a test you plan to reuse.
+      </p>
+    </div>
+
+    <div class="au-actions">
+      <button class="au-btn" id="buildBtn" type="button">Build the key</button>
+      <button class="au-btn ghost" id="saveBtn" type="button" hidden>Save the keyed .bbtest</button>
+      <button class="au-mini" id="copyBtn" type="button" hidden>Copy the key block</button>
+      <span class="au-ok" id="okMsg" hidden></span>
+    </div>
+    <textarea class="au-out" id="output" readonly rows="14" hidden aria-label="Hashed key block"></textarea>
+  </section>
+
+  <section class="au-card au-note">
+    <h2>What the hashing does and does not do</h2>
+    <p>
+      Each answer is stored as <code>SHA-256(salt : questionId : answer)</code>. A student who
+      opens the file, or the devtools console, sees hashes rather than letters.
+    </p>
+    <p>
+      <strong>This is obfuscation, not security.</strong> The salt has to ship with the file so
+      the browser can verify against it, and with five choices per question anyone willing to
+      write a five-iteration loop recovers the whole key. It defeats a casual look and nothing
+      more. If a key genuinely must stay secret, it cannot be in the browser at all.
+    </p>
+  </section>
+
+</main>
+
+<script type="module" src="/src/author/author.js"></script>
+</body>
+</html>
