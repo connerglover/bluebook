@@ -2,32 +2,44 @@
 :root{
   --si-blue:#3f4ec7;
   --si-blue-deep:#3341ad;
-  --si-art:rgba(255,255,255,.13);
 }
 
 body.on-signin{background:var(--si-blue);overflow:auto}
 
 .signin{
   position:relative;z-index:1;min-height:100dvh;
-  display:flex;flex-direction:column;align-items:center;
-  padding:26px 20px 40px;background:var(--si-blue);color:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  /* The bottom padding is the illustration band's room. Centring inside what
+     is left puts the card in the upper-middle the way the real app does,
+     instead of pinning it to the top with a lake of empty blue beneath. */
+  padding:40px 20px 300px;background:var(--si-blue);color:#fff;
   font-family:var(--sans);
 }
 
-/* the illustration band across the bottom */
-.si-art{
-  position:fixed;left:0;right:0;bottom:0;width:100%;height:230px;
-  color:var(--si-art);pointer-events:none;z-index:0;
+/* The illustration band across the bottom.
+
+   A background image rather than an element in the document. It is decoration:
+   it must not take focus, must not be read out, and must not sit in the tab
+   order between the wordmark and the card. Painting it on a pseudo-element
+   also means it can bleed off both edges at any window width without the
+   layout having to accommodate it.
+
+   The band is anchored to the bottom and sized by width, so on a narrow window
+   it crops at the sides rather than shrinking to nothing — which is what the
+   real app's band does too.
+
+   It lives on ::before, not ::after, because .signin.dragging::after is already
+   the drop-target overlay. Putting both on ::after means the art vanishes the
+   moment you drag a file over the window. */
+.signin::before{
+  content:"";
+  position:fixed;left:0;right:0;bottom:0;height:380px;
+  background:url("/signin-art.svg") no-repeat bottom center;
+  background-size:max(1320px, 114%) auto;
+  pointer-events:none;z-index:0;
 }
 .signin>*{position:relative;z-index:1}
 
-.si-device{
-  align-self:flex-end;display:inline-flex;align-items:center;gap:9px;
-  background:var(--si-blue-deep);color:#fff;border:1.5px solid rgba(255,255,255,.5);
-  border-radius:999px;padding:11px 22px;font-size:15.5px;font-weight:600;
-}
-.si-device svg{width:20px;height:20px}
-.si-device:hover{background:#2c3a9c}
 
 .si-mark{display:flex;align-items:flex-start;gap:10px;margin:26px 0 22px}
 .si-logo{width:44px;height:44px;flex:none}
@@ -88,16 +100,6 @@ body.on-signin{background:var(--si-blue);overflow:auto}
   font-size:12px;white-space:pre-wrap;opacity:.9;max-height:170px;overflow:auto;
 }
 
-.si-report{
-  width:100%;max-width:456px;margin-top:16px;background:#fff;color:var(--ink);
-  border-radius:14px;padding:20px 24px;box-shadow:0 10px 28px rgba(0,0,0,.16);
-}
-.si-report h2{margin:0 0 12px;font-size:17px}
-.si-report ul{list-style:none;margin:0;padding:0}
-.si-report li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;font-size:14.5px}
-.si-report .dot{width:10px;height:10px;border-radius:50%;margin-top:6px;flex:none}
-.si-report .good .dot{background:#2e9e6b}
-.si-report .bad .dot{background:#c8102e}
 
 .si-disclaimer{
   max-width:520px;margin:26px auto 0;text-align:center;
@@ -111,4 +113,11 @@ body.on-signin{background:var(--si-blue);overflow:auto}
   display:flex;align-items:center;justify-content:center;
   border:3px dashed rgba(255,255,255,.75);border-radius:18px;
   background:rgba(41,54,163,.72);font-size:23px;font-weight:700;color:#fff;
+}
+
+/* On a short or narrow window the band would eat the card's room, so shrink it
+   and give the content its space back. */
+@media (max-height: 720px), (max-width: 620px){
+  .signin{padding-bottom:190px}
+  .signin::before{height:230px;background-size:max(900px, 132%) auto}
 }

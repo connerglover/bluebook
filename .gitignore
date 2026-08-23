@@ -1,5 +1,19 @@
 node_modules/
 dist/
 .vite/
+
+# wrangler dev scratch state
+.wrangler/
+
+# Loose test and result files are working documents — a test someone is
+# drafting, a result someone just downloaded — and do not belong in the repo.
 *.bbtest
 *.bbresult.json
+
+# ...but the fixtures the test suite runs against, and the examples the skill
+# ships, are source. Without these exceptions a fresh clone has no fixtures and
+# every suite fails on the first run, which is a confusing way to meet a repo.
+!test/fixtures/*.bbtest
+!test/fixtures/*.bbresult.json
+!skills/bluebook/assets/*.bbtest
+!skills/bluebook/assets/*.bbresult.json

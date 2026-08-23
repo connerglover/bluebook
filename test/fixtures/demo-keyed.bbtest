@@ -1,0 +1,205 @@
+{
+  "meta": {
+    "course": "Mixed Subjects",
+    "title": "Feature Demo Test",
+    "previewBanner": "THIS IS A PRACTICE TEST",
+    "scoreReveal": "detailed",
+    "reference": "<h3>Formulas</h3><p>$\\frac{d}{dx}\\sin x = \\cos x$</p><p>$A = \\pi r^2$</p>"
+  },
+  "sections": [
+    {
+      "name": "Section I",
+      "label": "No Calculator Allowed",
+      "calculator": false,
+      "timeLimitMinutes": 12,
+      "directions": "<p>Solve each problem and select the best choice.</p>",
+      "passages": [
+        {
+          "id": "p1",
+          "title": "On the Migration of Monarchs",
+          "questions": [
+            "q1",
+            "q2"
+          ],
+          "html": "<p>Each autumn, monarch butterflies east of the Rocky Mountains undertake a journey of up to three thousand miles to a handful of forested mountainsides in central Mexico. No individual butterfly makes the round trip. The insects that arrive in Mexico are three or four generations removed from those that left it the previous spring.</p><p>How the returning generation finds a grove it has never seen remains only partly explained. Researchers have shown that the butterflies use a time-compensated sun compass: an internal clock housed in the antennae corrects the sun's apparent position for the hour of day. Remove the antennae and the compass fails, even though the butterfly can still see.</p><p>A magnetic sense appears to supplement the compass on overcast days, though its mechanism is disputed. What is not disputed is the fragility of the arrangement. The overwintering sites occupy a total area smaller than many cities.</p>"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "According to the passage, removing a monarch's antennae disrupts navigation primarily because the antennae house",
+          "choices": [
+            "the butterfly's principal light receptors",
+            "the internal clock the sun compass depends on",
+            "the magnetic sense used on overcast days",
+            "the muscles that control directional flight",
+            "the memory of the overwintering site"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "multi",
+          "prompt": "Which of the following are supported by the passage? Select all that apply.",
+          "choices": [
+            "No single monarch completes the round trip.",
+            "The sun compass corrects for the time of day.",
+            "The magnetic sense is fully explained.",
+            "The overwintering area is small relative to the migration distance.",
+            "Monarchs cannot see once the antennae are removed."
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "$$\\lim_{x\\to 0}\\frac{\\sin 3x}{x} =$$",
+          "choices": [
+            "$0$",
+            "$1$",
+            "$3$",
+            "$\\infty$",
+            "Does not exist"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "The graph shows the velocity of a particle over the interval $0 \\le t \\le 6$. At which time does the particle change direction?",
+          "figure": {
+            "alt": "A velocity-versus-time graph. The curve starts at v = 3 when t = 0, decreases steadily, crosses the horizontal axis at t = 4, and continues to about v = -2 at t = 6.",
+            "caption": "Graph of $v(t)$",
+            "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 240'><g stroke='#5a5a5a' stroke-width='1.5' fill='none'><path d='M40 200 H340'/><path d='M40 20 V220'/></g><g stroke='#c9c9c9' stroke-width='1'><path d='M90 20V220M140 20V220M190 20V220M240 20V220M290 20V220'/><path d='M40 60H340M40 100H340M40 160H340'/></g><path d='M40 80 C 120 90, 180 130, 240 140 S 320 175, 340 185' stroke='#2f5fd0' stroke-width='2.6' fill='none'/><circle cx='240' cy='140' r='4' fill='#c8102e'/><g font-family='sans-serif' font-size='12' fill='#5a5a5a'><text x='88' y='216'>1</text><text x='138' y='216'>2</text><text x='188' y='216'>3</text><text x='236' y='216'>4</text><text x='288' y='216'>5</text><text x='334' y='216'>6</text><text x='22' y='84'>3</text><text x='22' y='144'>0</text><text x='18' y='190'>-2</text><text x='340' y='232'>t</text><text x='30' y='16'>v</text></g></svg>"
+          },
+          "choices": [
+            "$t = 1$",
+            "$t = 2$",
+            "$t = 3$",
+            "$t = 4$",
+            "It never changes direction"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "truefalse",
+          "prompt": "If $f$ is continuous on $[a,b]$, then $f$ attains an absolute maximum on $[a,b]$."
+        }
+      ]
+    },
+    {
+      "name": "Section II",
+      "label": "Calculator Allowed",
+      "calculator": true,
+      "timeLimitMinutes": 15,
+      "directions": "<p>Show your reasoning. A calculator is permitted on this section.</p>",
+      "questions": [
+        {
+          "id": "q6",
+          "type": "dropdown",
+          "prompt": "The derivative of $\\ln(x^2+1)$ with respect to $x$ is",
+          "options": [
+            "$\\frac{1}{x^2+1}$",
+            "$\\frac{2x}{x^2+1}$",
+            "$\\frac{2x}{\\ln(x^2+1)}$",
+            "$2x\\ln(x^2+1)$",
+            "$\\frac{1}{2x}$"
+          ]
+        },
+        {
+          "id": "q7",
+          "type": "matching",
+          "prompt": "Match each function to its derivative.",
+          "left": [
+            "$\\sin x$",
+            "$e^{2x}$",
+            "$x^3$"
+          ],
+          "right": [
+            "$3x^2$",
+            "$\\cos x$",
+            "$2e^{2x}$"
+          ]
+        },
+        {
+          "id": "q8",
+          "type": "fields",
+          "prompt": "State the amplitude, period, and phase shift of $y = 3\\sin(2x - \\pi)$.",
+          "fields": [
+            {
+              "label": "Amplitude",
+              "type": "math"
+            },
+            {
+              "label": "Period",
+              "type": "math"
+            },
+            {
+              "label": "Phase shift",
+              "type": "math"
+            },
+            {
+              "label": "Direction",
+              "type": "dropdown",
+              "options": [
+                "to the left",
+                "to the right"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "q9",
+          "type": "parts",
+          "stimulus": {
+            "text": "Values of $f'$ at selected values of $x$ are given in the table.",
+            "table": {
+              "head": [
+                "$x$",
+                "0",
+                "2",
+                "4"
+              ],
+              "rows": [
+                [
+                  "$f'(x)$",
+                  "3",
+                  "1",
+                  "-2"
+                ]
+              ]
+            },
+            "caption": "Selected values of $f'$"
+          },
+          "prompt": "",
+          "parts": [
+            {
+              "type": "essay",
+              "prompt": "On what interval is $f$ decreasing? Justify your answer."
+            },
+            {
+              "type": "math",
+              "prompt": "Estimate $\\int_0^4 f'(x)\\,dx$ using a trapezoidal sum with the given data."
+            }
+          ]
+        },
+        {
+          "id": "q10",
+          "type": "fill",
+          "prompt": "The Fundamental Theorem of Calculus connects ___ and ___."
+        }
+      ]
+    }
+  ],
+  "key": {
+    "algo": "sha256-v1",
+    "salt": "0740ddeca4e0d7bc57531f5607c5f35c",
+    "answers": {
+      "q1": "daea4b508db5053628e189b6eec6e5190f98fc0e8b413b024a2d73ef579a4cc0",
+      "q2": "e83e02873f386b776911dcd4dc5a43e3f880fab25c7c9b637521c67bb12ded95",
+      "q3": "90db58571277bd3132ea968ca6bb402d9c25fceb8955c535afd1e0fa35fe32d6",
+      "q4": "cfc1f075ece8f24c38bcee8bc47ff8fa434d22bd6159d24823ed2d46e7bd5b3a",
+      "q5": "e925c6fc91a57da3da215fb406f9d55e246febd6b131c64b54619490f29a7ec5",
+      "q6": "2cc4a8fc20f07d0841c728fae926bd4c94145831024adbaae77c88f8f84aaced",
+      "q7": "6f5be8ad9affca0013954d4b5db1b558ff27539e21db8241b256d32d3401ac08"
+    }
+  }
+}

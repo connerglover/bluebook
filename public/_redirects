@@ -1,2 +1,14 @@
-# Two real pages, so no SPA catch-all. Just tidy the /author path.
-/author    /author.html    301
+# Intentionally empty.
+#
+# DO NOT add `/author  /author.html  301` here. It looks harmless and it is not:
+# wrangler.toml sets `html_handling = "auto-trailing-slash"`, which already
+# serves author.html at /author AND redirects /author.html -> /author. Adding a
+# rule pointing the other way produces an infinite 307/301 ping-pong and the
+# browser fails with ERR_TOO_MANY_REDIRECTS. That shipped once.
+#
+# Extension-less URLs are handled by html_handling, not by this file. If you
+# need a genuine redirect (a renamed page, an external link), it goes here — but
+# check it does not fight the extension stripping first, with:
+#
+#   npm run build && npx wrangler dev --local
+#   curl -sI localhost:8787/whatever

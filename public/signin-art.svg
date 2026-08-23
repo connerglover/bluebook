@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 360" width="1600" height="360" role="presentation">
+  <!--
+    The illustration band along the bottom of the sign-in screen.
+
+    A background image, not an element in the document: it is decoration, it
+    must never take focus or be read out, and keeping it out of the DOM means
+    the sign-in card's markup stays about the sign-in card.
+
+    Drawn as translucent white so it works on any backdrop and needs no second
+    colour. Objects sit on the baseline and run off both edges, the way the
+    real app's band does.
+  -->
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.20" stroke-width="3.5"
+     stroke-linejoin="round" stroke-linecap="round">
+
+    <!-- laptop, far left, partly off-canvas -->
+    <g transform="translate(-20 96)">
+      <rect x="0" y="0" width="300" height="196" rx="10" fill="#ffffff" fill-opacity="0.06"/>
+      <rect x="26" y="26" width="112" height="82" rx="6"/>
+      <rect x="160" y="26" width="114" height="34" rx="6"/>
+      <rect x="160" y="74" width="114" height="34" rx="6"/>
+      <rect x="26" y="128" width="248" height="18" rx="8"/>
+      <rect x="26" y="158" width="150" height="14" rx="7"/>
+      <path d="M-46 292h392l26 34H-72z" fill="#ffffff" fill-opacity="0.06"/>
+    </g>
+
+    <!-- stacked answer sheets -->
+    <g transform="translate(342 60)">
+      <rect x="28" y="0" width="156" height="206" rx="10" fill="#ffffff" fill-opacity="0.05"/>
+      <rect x="0" y="26" width="156" height="206" rx="10" fill="#ffffff" fill-opacity="0.07"/>
+      <path d="M26 66h104M26 100h104M26 134h66"/>
+      <circle cx="34" cy="176" r="10"/>
+      <circle cx="70" cy="176" r="10" fill="#ffffff" fill-opacity="0.22"/>
+      <circle cx="106" cy="176" r="10"/>
+    </g>
+
+    <!-- calculator -->
+    <g transform="translate(560 132)">
+      <rect x="0" y="0" width="120" height="180" rx="12" fill="#ffffff" fill-opacity="0.06"/>
+      <rect x="20" y="20" width="80" height="34" rx="5"/>
+      <circle cx="30" cy="82" r="8"/><circle cx="60" cy="82" r="8"/><circle cx="90" cy="82" r="8"/>
+      <circle cx="30" cy="116" r="8"/><circle cx="60" cy="116" r="8"/><circle cx="90" cy="116" r="8"/>
+      <circle cx="30" cy="150" r="8"/><circle cx="60" cy="150" r="8"/><circle cx="90" cy="150" r="8"/>
+    </g>
+
+    <!-- open book -->
+    <g transform="translate(724 168)">
+      <path d="M108 22C74 2 34 0 0 6v128c34-6 74-4 108 16z" fill="#ffffff" fill-opacity="0.06"/>
+      <path d="M108 22c34-20 74-22 108-16v128c-34-6-74-4-108 16z" fill="#ffffff" fill-opacity="0.06"/>
+      <path d="M108 22v128"/>
+      <path d="M26 44h58M26 72h58M132 44h58M132 72h58"/>
+    </g>
+
+    <!-- folder -->
+    <g transform="translate(986 176)">
+      <path d="M0 20a10 10 0 0110-10h56l18 22h72a10 10 0 0110 10v82a10 10 0 01-10 10H10a10 10 0 01-10-10z"
+            fill="#ffffff" fill-opacity="0.06"/>
+    </g>
+
+    <!-- the exam hall: a classical facade -->
+    <g transform="translate(1150 96)">
+      <path d="M-14 74L104 8l118 66z" fill="#ffffff" fill-opacity="0.06"/>
+      <rect x="6" y="74" width="196" height="26" rx="4" fill="#ffffff" fill-opacity="0.06"/>
+      <path d="M28 100v128M74 100v128M134 100v128M180 100v128"/>
+      <rect x="-14" y="228" width="236" height="26" rx="4" fill="#ffffff" fill-opacity="0.06"/>
+      <path d="M-30 254h268"/>
+    </g>
+
+    <!-- stopwatch -->
+    <g transform="translate(1398 156)">
+      <rect x="34" y="-16" width="36" height="16" rx="7" fill="#ffffff" fill-opacity="0.10"/>
+      <circle cx="52" cy="72" r="70" fill="#ffffff" fill-opacity="0.05"/>
+      <path d="M52 34v40h30"/>
+    </g>
+
+    <!-- pencil, tucked right -->
+    <g transform="translate(1526 210)">
+      <path d="M0 96l14-46 62-62 32 32-62 62z" fill="#ffffff" fill-opacity="0.06"/>
+      <path d="M14 50l32 32"/>
+    </g>
+
+    <!-- clouds -->
+    <path d="M470 26c0-16 14-28 30-26 6-16 26-22 40-12 12-8 30-2 34 12 16 0 28 12 28 26z"
+          fill="#ffffff" fill-opacity="0.05"/>
+    <path d="M1244 44c0-14 12-24 26-22 5-14 22-19 34-10 10-7 26-2 29 10 14 0 24 10 24 22z"
+          fill="#ffffff" fill-opacity="0.05"/>
+    <path d="M880 60c0-12 10-20 22-19 4-12 19-16 29-9 9-6 22-1 25 9 12 0 20 9 20 19z"
+          fill="#ffffff" fill-opacity="0.05"/>
+
+    <!-- the Bluebook cursor, twice, floating -->
+    <g transform="translate(824 24) scale(1.5)" stroke-opacity="0.26">
+      <path d="M0 0l16 25-10 1 7 16-5 2-7-16-8 6z" fill="#ffffff" fill-opacity="0.16"/>
+    </g>
+    <g transform="translate(1092 18) scale(1.1)" stroke-opacity="0.26">
+      <path d="M0 0l16 25-10 1 7 16-5 2-7-16-8 6z" fill="#ffffff" fill-opacity="0.16"/>
+    </g>
+
+    <!-- sparkle -->
+    <g transform="translate(258 44)">
+      <path d="M0 0l5 13 13 5-13 5-5 13-5-13-13-5 13-5z" fill="#ffffff" fill-opacity="0.18"/>
+    </g>
+  </g>
+</svg>

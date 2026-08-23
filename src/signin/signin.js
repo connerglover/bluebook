@@ -13,7 +13,7 @@ const ui = {};
 function cache() {
   ["signin", "siName", "siNameErr", "siPick", "siFile", "siFileErr", "siDrop",
     "siResume", "siResumeBtn", "siResumeLabel", "siResumeSub", "siDiscard",
-    "siDevice", "siReport", "siForm"].forEach((k) => { ui[k] = $(k); });
+    "siForm"].forEach((k) => { ui[k] = $(k); });
 }
 
 function showFileError(err) {
@@ -33,37 +33,6 @@ function requireName() {
   ui.siNameErr.hidden = !!v;
   if (!v) ui.siName.focus();
   return v;
-}
-
-/* A short environment check, standing in for the real app's "Test Your Device".
-   Everything it reports is something that would actually affect a sitting. */
-function deviceReport() {
-  const rows = [];
-  const ok = (label, good, note) =>
-    rows.push({ label, good, note: note || (good ? "Ready" : "Not available") });
-
-  let storage = false;
-  try {
-    window.localStorage.setItem("bluebook:probe", "1");
-    window.localStorage.removeItem("bluebook:probe");
-    storage = true;
-  } catch (e) { storage = false; }
-
-  ok("Saving your progress", storage,
-    storage ? "Your work will be saved as you go" : "Private browsing blocks this — do not close the tab");
-  ok("Math typesetting", typeof document.createElement("canvas").getContext === "function");
-  ok("Answer checking", !!(window.crypto && window.crypto.subtle),
-    window.crypto && window.crypto.subtle ? "Ready" : "Needs a secure (https) connection");
-  ok("Reading files", typeof window.FileReader === "function");
-  ok("Screen size", window.innerWidth >= 700,
-    window.innerWidth >= 700 ? window.innerWidth + " px wide" : "Narrow — passages and questions will page");
-
-  ui.siReport.hidden = false;
-  ui.siReport.innerHTML = "<h2>Your device</h2><ul>" + rows.map((r) =>
-    '<li class="' + (r.good ? "good" : "bad") + '"><span class="dot" aria-hidden="true"></span>' +
-    "<span><strong>" + esc(r.label) + "</strong> " + esc(r.note) + "</span></li>"
-  ).join("") + '</ul><button type="button" class="si-link" id="siReportClose">Close</button>';
-  $("siReportClose").addEventListener("click", () => { ui.siReport.hidden = true; });
 }
 
 /**
@@ -174,7 +143,6 @@ export function initSignin(onStart) {
     });
   }
 
-  ui.siDevice.addEventListener("click", deviceReport);
 }
 
 export function hideSignin() {

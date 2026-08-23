@@ -20,8 +20,12 @@ ok("file picker button", !!doc.getElementById("siPick"));
 ok("hidden file input", !!doc.getElementById("siFile"));
 eq("accepting .bbtest", doc.getElementById("siFile").getAttribute("accept"), ".bbtest,.json,application/json");
 ok("resume block present but hidden", doc.getElementById("siResume").hidden === true);
-ok("device check button", !!doc.getElementById("siDevice"));
 ok("link to the key builder", !!doc.querySelector('a[href="./author.html"]'));
+ok("heading names the task rather than saying Sign In",
+   /Practice Test/i.test(doc.getElementById("siHeading").textContent));
+ok("no stray device-check button", !doc.getElementById("siDevice"));
+ok("the illustration is not in the document — it is a CSS background",
+   !doc.querySelector(".si-art") && !doc.querySelector("#signin svg.si-art"));
 
 group("it does not ask for a credential");
 const inputs = Array.from(doc.querySelectorAll("#signin input"));

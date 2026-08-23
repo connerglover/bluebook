@@ -1,0 +1,206 @@
+{
+  "format": 1,
+  "kind": "bbresult",
+  "generatedAt": "2026-08-23T04:58:24.728Z",
+  "generatedAtLocal": "8/22/2026, 11:58:24 PM",
+  "test": {
+    "title": "Unit 3 Quiz — Cellular Energetics",
+    "course": "AP Biology",
+    "id": "t1jg84cp",
+    "file": "bio-unit-3.bbtest",
+    "gradingNote": null
+  },
+  "tester": "Conner Glover",
+  "timing": {
+    "totalSecondsUsed": 1500,
+    "totalDisplay": "25:00",
+    "startedAt": "2026-08-23T04:58:24.712Z",
+    "timersEnabled": true
+  },
+  "progress": {
+    "answered": 6,
+    "total": 9,
+    "unanswered": [
+      5,
+      8,
+      9
+    ],
+    "markedForReview": [
+      2,
+      4
+    ]
+  },
+  "autoScore": {
+    "scored": 6,
+    "correct": 3,
+    "incorrect": 2,
+    "blank": 1,
+    "percent": 50,
+    "perQuestion": [
+      {
+        "id": "q1",
+        "number": 1,
+        "type": "mcq",
+        "status": "correct"
+      },
+      {
+        "id": "q2",
+        "number": 2,
+        "type": "multi",
+        "status": "incorrect"
+      },
+      {
+        "id": "q3",
+        "number": 3,
+        "type": "truefalse",
+        "status": "correct"
+      },
+      {
+        "id": "q4",
+        "number": 4,
+        "type": "mcq",
+        "status": "correct"
+      },
+      {
+        "id": "q5",
+        "number": 5,
+        "type": "matching",
+        "status": "blank"
+      },
+      {
+        "id": "q6",
+        "number": 6,
+        "type": "dropdown",
+        "status": "incorrect"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "name": "Section I",
+      "label": "Multiple Choice",
+      "calculator": false,
+      "timeLimitMinutes": 14,
+      "timeUsedSeconds": 840,
+      "questions": [
+        {
+          "number": 1,
+          "id": "q1",
+          "type": "mcq",
+          "answer": "B",
+          "answered": true,
+          "markedForReview": false,
+          "issue": null
+        },
+        {
+          "number": 2,
+          "id": "q2",
+          "type": "multi",
+          "answer": "A, C",
+          "answered": true,
+          "markedForReview": true,
+          "issue": null
+        },
+        {
+          "number": 3,
+          "id": "q3",
+          "type": "truefalse",
+          "answer": "B (False)",
+          "answered": true,
+          "markedForReview": false,
+          "issue": "The passage never mentions activation energy, so I do not think the data can support this either way."
+        },
+        {
+          "number": 4,
+          "id": "q4",
+          "type": "mcq",
+          "answer": "A",
+          "answered": true,
+          "markedForReview": true,
+          "issue": null
+        },
+        {
+          "number": 5,
+          "id": "q5",
+          "type": "matching",
+          "answer": "1->?, 2->?, 3->?",
+          "answered": false,
+          "markedForReview": false,
+          "issue": null
+        },
+        {
+          "number": 6,
+          "id": "q6",
+          "type": "dropdown",
+          "answer": "electron transfer from oxygen to NADH",
+          "answered": true,
+          "markedForReview": false,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "name": "Section II",
+      "label": "Free Response",
+      "calculator": true,
+      "timeLimitMinutes": 16,
+      "timeUsedSeconds": 660,
+      "questions": [
+        {
+          "number": 7,
+          "id": "q7",
+          "type": "fields",
+          "answer": "Tonicity of the solution = hypertonic\nDirection of net water movement = out of the cell\nExplain your reasoning = Water leaves the cell because the outside is more concentrated.",
+          "answered": true,
+          "markedForReview": false,
+          "issue": null
+        },
+        {
+          "number": 8,
+          "id": "q8",
+          "type": "parts",
+          "answer": [
+            {
+              "part": "(a)",
+              "label": "Part A",
+              "type": "essay",
+              "value": "Fermentation. It does not use the electron transport chain."
+            },
+            {
+              "part": "(b)",
+              "label": "Part B",
+              "type": "essay",
+              "value": "BLANK"
+            }
+          ],
+          "answered": false,
+          "markedForReview": false,
+          "issue": null
+        },
+        {
+          "number": 9,
+          "id": "q9",
+          "type": "fill",
+          "answer": "[BLANK] [BLANK]",
+          "answered": false,
+          "markedForReview": false,
+          "issue": null
+        }
+      ]
+    }
+  ],
+  "disputed": [
+    {
+      "number": 3,
+      "id": "q3",
+      "note": "The passage never mentions activation energy, so I do not think the data can support this either way."
+    }
+  ],
+  "marginNotes": [
+    {
+      "question": 1,
+      "quote": "did not recover",
+      "note": "denatured = permanent?"
+    }
+  ]
+}
