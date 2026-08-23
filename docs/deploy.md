@@ -84,8 +84,15 @@ dist/
   ti84.html           the TI-84 emulator's own page
   404.html            shown for any other path
   assets/…            hashed JS, CSS and KaTeX fonts
+  favicon.svg         }
+  favicon.ico         }  regenerate with: python tools/make-favicon.py
+  apple-touch-icon.png}
+  icon-192.png        }
+  icon-512.png        }
+  site.webmanifest    }
+  signin-art.svg      the sign-in screen's illustration band
   _headers            security headers and cache rules
-  _redirects          /author → /author.html
+  _redirects          intentionally empty — see the file
   robots.txt          disallow all
 ```
 

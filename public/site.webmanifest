@@ -1,0 +1,13 @@
+{
+  "name": "Bluebook Practice Test",
+  "short_name": "Practice Test",
+  "description": "An unofficial practice-test runtime. Load a .bbtest file and sit the exam.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#3f4ec7",
+  "theme_color": "#3f4ec7",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
