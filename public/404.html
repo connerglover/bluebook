@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found</title>
+<style>
+  :root { --bb-blue: #3f4ec7; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100dvh; background: var(--bb-blue); color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; text-align: center; padding: 32px 20px;
+  }
+  .mark { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 26px; }
+  .mark svg { width: 38px; height: 38px; }
+  .word { font-size: 34px; font-weight: 800; letter-spacing: -.5px; line-height: 1; }
+  h1 { margin: 0 0 10px; font-size: 26px; font-weight: 700; }
+  p { margin: 0 0 26px; font-size: 16px; line-height: 1.6; color: rgba(255,255,255,.85); max-width: 34em; }
+  a.btn {
+    display: inline-block; background: #ffd400; color: #1b1b1b; text-decoration: none;
+    border-radius: 999px; padding: 13px 26px; font-size: 16px; font-weight: 700;
+  }
+  a.btn:hover { background: #f0c800; }
+  .fine { margin-top: 30px; font-size: 12px; color: rgba(255,255,255,.6); max-width: 40em; }
+</style>
+</head>
+<body>
+  <div class="mark">
+    <svg viewBox="0 0 44 44" aria-hidden="true">
+      <path d="M9 4 L20 21 L13 22 L18 33 L14.5 34.5 L9.5 23.5 L4 28 Z" fill="#fff"/>
+      <path d="M31 6.5l1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5z" fill="#fff"/>
+    </svg>
+    <span class="word">Bluebook</span>
+  </div>
+
+  <h1>That page isn&rsquo;t here</h1>
+  <p>
+    There are only two pages: the exam itself, and the answer-key builder.
+    If you were opening a test, go to the start and choose your file there &mdash;
+    tests are loaded from your own device, not from a link.
+  </p>
+  <a class="btn" href="/">Go to the start</a>
+
+  <p class="fine">
+    Unofficial practice tool. Not affiliated with, endorsed by, or connected to
+    College Board.
+  </p>
+</body>
+</html>

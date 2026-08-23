@@ -1,11 +1,32 @@
-# Cloudflare Pages.
+# Cloudflare — Workers with static assets.
 #
-# The app is fully static: `npm run build` writes dist/ and that is the whole
-# deployment. There is no Worker, no Function, and no server-side state — the
-# test file and the results file both live on the test-taker's machine.
+# The app is fully static: `npm run build` writes dist/, and dist/ is the whole
+# deployment. There is no Worker script, no Function, and no server-side state —
+# the test file and the results file both live on the test-taker's machine.
+# The [assets] block below is what makes a Worker serve a directory with no
+# code behind it.
 #
-# Change `name` to whatever the Pages project is called in your dashboard.
+# WHY NOT `pages_build_output_dir`: this file previously declared that key,
+# which is Pages-only. Wrangler reads it, concludes the project is a Pages
+# project, and then `wrangler deploy` — the Workers command your build runs —
+# fails with "Missing entry-point to Worker script or to assets directory".
+# The two products need different config and the build only runs one of them.
+#
+# If you would rather run this as a classic Pages project instead, see
+# docs/deploy.md — it is a dashboard change plus a one-line swap here.
 
 name = "bluebook"
 compatibility_date = "2026-08-22"
-pages_build_output_dir = "dist"
+
+[assets]
+directory = "./dist"
+
+# Two real pages (index.html and author.html), not a single-page app, so an
+# unknown path should 404 rather than silently rendering the exam shell.
+# "auto-trailing-slash" is what lets /author resolve to /author.html.
+html_handling = "auto-trailing-slash"
+not_found_handling = "404-page"
+
+# public/_headers and public/_redirects are copied into dist/ by the build and
+# are honoured here the same way they are on Pages — that is where the
+# Content-Security-Policy and the cache rules live.
