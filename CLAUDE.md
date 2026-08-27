@@ -38,7 +38,6 @@ src/
 public/                   _headers, _redirects, robots.txt, ti84.html
 docs/                     the .bbtest and .bbresult specs, authoring guide, deploy
 test/                     fifteen suites, `bash test/run.sh`
-course/                   AP Calc BC specifics: unit map, schedule, style
 skills/bluebook/          the Claude skill: authors .bbtest files, reads results
 ```
 

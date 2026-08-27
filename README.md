@@ -78,8 +78,9 @@ out; it asks whether you want to keep working.
 | [docs/deploy.md](docs/deploy.md) | Cloudflare Pages setup and the header rules |
 | [CLAUDE.md](CLAUDE.md) | Architecture, and the traps that have actually bitten |
 
-`course/` holds AP Calculus BC specifics — unit map, schedule, house style —
-for whoever is writing tests for that course.
+Course-specific material — a unit map, an assessment schedule, a house style —
+belongs with whoever is writing tests for that course, not in this repo. The
+`bluebook` skill reads it as the brief for a particular class.
 
 ## A note on the answer key
 
@@ -99,6 +100,5 @@ src/            the runtime, as ES modules
 public/         static files and the Cloudflare header rules
 docs/           formats, authoring, deployment
 test/           fifteen suites, run with test/run.sh
-course/         AP Calculus BC course material
 skills/         the Claude skill that writes .bbtest files and reads results
 ```
