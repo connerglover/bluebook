@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-02T00:00:00.000Z",
+  "title": "Design System: Bluebook Simulator",
+  "extensions": {
+    "colorMeta": {
+      "sanctioned-blue": {
+        "role": "primary",
+        "displayName": "Sanctioned Blue",
+        "canonical": "#2f5fd0",
+        "cssVar": "--blue",
+        "tonalRamp": ["oklch(15% 0.07 264)", "oklch(25% 0.11 264)", "oklch(35% 0.15 264)", "oklch(45% 0.18 264)", "oklch(55% 0.19 264)", "oklch(68% 0.14 264)", "oklch(82% 0.08 264)", "oklch(95% 0.03 264)"]
+      },
+      "sanctioned-blue-pressed": {
+        "role": "primary",
+        "displayName": "Sanctioned Blue Pressed",
+        "canonical": "#24499f",
+        "cssVar": "--blue-dark"
+      },
+      "sanctioned-blue-wash": {
+        "role": "primary",
+        "displayName": "Sanctioned Blue Wash",
+        "canonical": "#eaeffc",
+        "cssVar": "--blue-soft"
+      },
+      "invigilator-navy": {
+        "role": "primary",
+        "displayName": "Invigilator Navy",
+        "canonical": "#1c2c5b",
+        "cssVar": "--navy",
+        "tonalRamp": ["oklch(15% 0.05 268)", "oklch(22% 0.07 268)", "oklch(28% 0.09 268)", "oklch(38% 0.12 268)", "oklch(50% 0.14 268)", "oklch(64% 0.11 268)", "oklch(80% 0.06 268)", "oklch(94% 0.02 268)"]
+      },
+      "proctor-gold": {
+        "role": "secondary",
+        "displayName": "Proctor Gold",
+        "canonical": "#ffd400",
+        "cssVar": "--yellow",
+        "tonalRamp": ["oklch(20% 0.05 92)", "oklch(32% 0.08 92)", "oklch(45% 0.11 92)", "oklch(58% 0.14 92)", "oklch(70% 0.16 92)", "oklch(80% 0.17 92)", "oklch(88% 0.16 92)", "oklch(96% 0.07 92)"]
+      },
+      "sign-in-indigo": {
+        "role": "secondary",
+        "displayName": "Sign-in Indigo",
+        "canonical": "#3f4ec7",
+        "cssVar": "--si-blue",
+        "tonalRamp": ["oklch(15% 0.07 271)", "oklch(25% 0.12 271)", "oklch(35% 0.16 271)", "oklch(44% 0.19 271)", "oklch(54% 0.19 271)", "oklch(68% 0.14 271)", "oklch(82% 0.08 271)", "oklch(95% 0.03 271)"]
+      },
+      "sign-in-indigo-deep": {
+        "role": "secondary",
+        "displayName": "Sign-in Indigo Deep",
+        "canonical": "#3341ad",
+        "cssVar": "--si-blue-deep"
+      },
+      "flag-crimson": {
+        "role": "tertiary",
+        "displayName": "Flag Crimson",
+        "canonical": "#c8102e",
+        "cssVar": "--flag",
+        "tonalRamp": ["oklch(18% 0.08 22)", "oklch(28% 0.13 22)", "oklch(38% 0.17 22)", "oklch(48% 0.20 22)", "oklch(58% 0.21 22)", "oklch(70% 0.16 22)", "oklch(83% 0.09 22)", "oklch(95% 0.03 22)"]
+      },
+      "alert-wash": { "role": "tertiary", "displayName": "Alert Wash", "canonical": "#fad4d9", "cssVar": "--redbg" },
+      "alert-ink": { "role": "tertiary", "displayName": "Alert Ink", "canonical": "#7d1620", "cssVar": "--redink" },
+      "annotation-amber": {
+        "role": "tertiary",
+        "displayName": "Annotation Amber",
+        "canonical": "#a85c00",
+        "cssVar": "--note",
+        "tonalRamp": ["oklch(18% 0.05 62)", "oklch(28% 0.08 62)", "oklch(40% 0.10 62)", "oklch(50% 0.12 62)", "oklch(62% 0.13 62)", "oklch(74% 0.11 62)", "oklch(86% 0.07 62)", "oklch(96% 0.03 62)"]
+      },
+      "annotation-wash": { "role": "tertiary", "displayName": "Annotation Wash", "canonical": "#fff6e8", "cssVar": "--note-soft" },
+      "highlighter-yellow": { "role": "tertiary", "displayName": "Highlighter Yellow", "canonical": "#ffe45c" },
+      "highlighter-blue": { "role": "tertiary", "displayName": "Highlighter Blue", "canonical": "#bfe3fb" },
+      "highlighter-pink": { "role": "tertiary", "displayName": "Highlighter Pink", "canonical": "#fcc9dd" },
+      "exam-chrome-periwinkle": {
+        "role": "neutral",
+        "displayName": "Exam Chrome Periwinkle",
+        "canonical": "#e9edf8",
+        "cssVar": "--bar",
+        "tonalRamp": ["oklch(20% 0.02 265)", "oklch(33% 0.02 265)", "oklch(46% 0.02 265)", "oklch(59% 0.02 265)", "oklch(72% 0.018 265)", "oklch(84% 0.016 265)", "oklch(94% 0.015 265)", "oklch(99% 0.005 265)"]
+      },
+      "booklet-ink": {
+        "role": "neutral",
+        "displayName": "Booklet Ink",
+        "canonical": "#1b1b1b",
+        "cssVar": "--ink",
+        "tonalRamp": ["oklch(15% 0 0)", "oklch(24% 0 0)", "oklch(37% 0 0)", "oklch(48% 0 0)", "oklch(62% 0 0)", "oklch(76% 0 0)", "oklch(88% 0 0)", "oklch(96% 0 0)"]
+      },
+      "muted-ink": { "role": "neutral", "displayName": "Muted Ink", "canonical": "#5a5a5a", "cssVar": "--ink-soft" },
+      "rule-grey": { "role": "neutral", "displayName": "Rule Grey", "canonical": "#6f6f6f", "cssVar": "--rule" },
+      "hairline": { "role": "neutral", "displayName": "Hairline", "canonical": "#c9c9c9", "cssVar": "--line" },
+      "panel-grey": { "role": "neutral", "displayName": "Panel Grey", "canonical": "#f5f5f5", "cssVar": "--panel" },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#ffffff" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "One per screen: intro, finish, and review titles. Never inside a question." },
+      "headline": { "displayName": "Headline", "purpose": "The sign-in card heading and the review screen title." },
+      "title": { "displayName": "Title", "purpose": "Section title in the top bar, sheet headings, passage titles." },
+      "body": { "displayName": "Body (chrome)", "purpose": "Sans-serif prose the application speaks: directions, menu items, preview rows." },
+      "reading": { "displayName": "Reading (serif)", "purpose": "Everything the student reads to answer or types as an answer: stems, stimuli, choices, passages. Sized in em so the zoom control scales it." },
+      "clock": { "displayName": "Clock", "purpose": "Timer and break countdown. Tabular figures are mandatory; digits must not shift width." },
+      "label": { "displayName": "Label", "purpose": "Uppercase micro-labels: field labels, navigator group headings, banners, score caption." }
+    },
+    "shadows": [
+      { "name": "resting-card", "value": "0 1px 3px rgba(0,0,0,.07)", "purpose": "Intro and finish cards. Barely there; a card is a bordered surface first." },
+      { "name": "anchored-popover", "value": "0 6px 22px rgba(0,0,0,.26), 0 0 0 1px rgba(0,0,0,.09)", "purpose": "The highlight toolbar. Ambient shadow plus a hairline ring so it reads on any background." },
+      { "name": "navigator", "value": "0 10px 34px rgba(0,0,0,.24)", "purpose": "The question navigator popover." },
+      { "name": "menu", "value": "0 14px 44px rgba(0,0,0,.26)", "purpose": "The More menu on narrow windows." },
+      { "name": "modal", "value": "0 24px 70px rgba(0,0,0,.35)", "purpose": "Sheets over the 45% black scrim." },
+      { "name": "selection-ring", "value": "0 0 0 3px #1b1b1b", "purpose": "The current question in the navigator. A ring, not a glow." }
+    ],
+    "motion": [
+      { "name": "ease-rise", "value": "cubic-bezier(.2,.7,.3,1)", "purpose": "Default easing for every entering layer and for the calculator pane shift." },
+      { "name": "dur-pop", "value": "0.18s", "purpose": "Popovers, menus, and scrim fades." },
+      { "name": "dur-sheet", "value": "0.22s", "purpose": "Modal sheets rising into place." },
+      { "name": "dur-pane", "value": "0.28s", "purpose": "Pane padding shift when the calculator opens." },
+      { "name": "reduced-motion", "value": "@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}", "purpose": "Global kill switch. Every animation in the app must survive being switched off." }
+    ],
+    "breakpoints": [
+      { "name": "narrow", "value": "860px", "purpose": "The one that matters. Shared between narrow.css and isNarrow() in JS. Tools collapse into the More menu; passage questions become two flippable pages." },
+      { "name": "calc-reflow", "value": "1100px", "purpose": "Calculator panel reflow." },
+      { "name": "phone", "value": "560px", "purpose": "Smallest phones." },
+      { "name": "signin-band", "value": "620px wide or 720px tall", "purpose": "Shrinks the sign-in illustration band so the card keeps its room." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The affirmative action on every screen: Next, Continue, Save.",
+      "html": "<button class=\"ds-btn\">Next</button>",
+      "css": ".ds-btn { border: 2px solid transparent; border-radius: 24px; padding: 9px 26px; font-size: 15px; font-weight: 700; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--blue, #2f5fd0); color: #fff; cursor: pointer; } .ds-btn:hover { background: var(--blue-dark, #24499f); } .ds-btn:focus-visible { outline: 3px solid var(--blue, #2f5fd0); outline-offset: 2px; } .ds-btn:disabled { opacity: .4; cursor: not-allowed; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "The secondary action beside a primary one. Same metrics, outlined.",
+      "html": "<button class=\"ds-btn-ghost\">Back</button>",
+      "css": ".ds-btn-ghost { border: 2px solid var(--blue, #2f5fd0); border-radius: 24px; padding: 9px 26px; font-size: 15px; font-weight: 700; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fff; color: var(--blue, #2f5fd0); cursor: pointer; } .ds-btn-ghost:hover { background: var(--blue-soft, #eaeffc); } .ds-btn-ghost:focus-visible { outline: 3px solid var(--blue, #2f5fd0); outline-offset: 2px; }"
+    },
+    {
+      "name": "Gold Button",
+      "kind": "button",
+      "refersTo": "button-gold",
+      "description": "The go-forward action. One per screen, never more.",
+      "html": "<button class=\"ds-btn-gold\">Start the test</button>",
+      "css": ".ds-btn-gold { border: 0; border-radius: 999px; padding: 15px 20px; font-size: 16.5px; font-weight: 700; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--yellow, #ffd400); color: #1b1b1b; cursor: pointer; } .ds-btn-gold:hover { background: #f0c800; } .ds-btn-gold:focus-visible { outline: 3px solid var(--blue, #2f5fd0); outline-offset: 2px; }"
+    },
+    {
+      "name": "Choice Row",
+      "kind": "custom",
+      "refersTo": "choice-row",
+      "description": "The signature control. Selection shows in the border and the letter disc only; the row never tints.",
+      "html": "<div class=\"ds-choices\"><button class=\"ds-choice\" aria-checked=\"false\"><span class=\"ds-choice-letter\">A</span><span class=\"ds-choice-body\">The limit does not exist.</span></button><button class=\"ds-choice\" aria-checked=\"true\"><span class=\"ds-choice-letter\">B</span><span class=\"ds-choice-body\">The limit equals 3.</span></button><button class=\"ds-choice ds-choice-struck\" aria-checked=\"false\"><span class=\"ds-choice-letter\">C</span><span class=\"ds-choice-body\">It cannot be determined.</span></button></div>",
+      "css": ".ds-choices { display: flex; flex-direction: column; gap: 11px; } .ds-choice { display: flex; align-items: center; gap: 13px; width: 100%; text-align: left; background: #fff; border: 2px solid #8e8e8e; border-radius: 9px; padding: 10px 14px; min-height: 52px; font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; line-height: 1.5; color: #1b1b1b; cursor: pointer; } .ds-choice:hover { border-color: #333; } .ds-choice-letter { width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid #555; flex: none; display: grid; place-items: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 600; font-size: 13px; } .ds-choice[aria-checked=\"true\"] { border-color: var(--blue, #2f5fd0); } .ds-choice[aria-checked=\"true\"] .ds-choice-letter { background: var(--blue, #2f5fd0); border-color: var(--blue, #2f5fd0); color: #fff; } .ds-choice-struck { opacity: .45; } .ds-choice-struck .ds-choice-body, .ds-choice-struck .ds-choice-letter { text-decoration: line-through; } .ds-choice:focus-visible { outline: 3px solid var(--blue, #2f5fd0); outline-offset: 2px; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-text",
+      "description": "Short answer and math fallback field. Serif, because the student is writing an answer.",
+      "html": "<div><p class=\"ds-field-label\">Your answer</p><input class=\"ds-input\" type=\"text\" placeholder=\"Type your answer\"></div>",
+      "css": ".ds-field-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 700; color: var(--ink-soft, #5a5a5a); margin: 0 0 6px; letter-spacing: .02em; } .ds-input { width: 100%; font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; padding: 11px 13px; border: 2px solid #8e8e8e; border-radius: 8px; background: #fff; color: #1b1b1b; } .ds-input:focus { border-color: var(--blue, #2f5fd0); outline: none; }"
+    },
+    {
+      "name": "Fill-in Blank",
+      "kind": "input",
+      "refersTo": "input-text",
+      "description": "An inline blank inside a serif sentence. A ruled line on cream, not a box.",
+      "html": "<p class=\"ds-fillline\">The derivative of <em>x</em>&sup2; is <input class=\"ds-blank\" type=\"text\" value=\"\"> at every point.</p>",
+      "css": ".ds-fillline { font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 2.1; color: #1b1b1b; margin: 0; } .ds-blank { font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; border: none; border-bottom: 2px solid #555; background: #fff8d8; min-width: 120px; padding: 2px 6px; text-align: center; } .ds-blank:focus { outline: none; border-bottom-color: var(--blue, #2f5fd0); background: #fff; }"
+    },
+    {
+      "name": "Top Bar Tool Tab",
+      "kind": "nav",
+      "refersTo": "tool-tab",
+      "description": "Stacked icon over label. The active underline is a pseudo-element so metrics never shift between states.",
+      "html": "<div class=\"ds-tools\"><button class=\"ds-tool\" aria-pressed=\"false\"><span class=\"ds-tool-ic\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M4 7h16M4 12h10M4 17h13\"/></svg></span>Notes</button><button class=\"ds-tool\" aria-pressed=\"true\"><span class=\"ds-tool-ic\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><rect x=\"4\" y=\"3\" width=\"16\" height=\"18\" rx=\"2\"/><path d=\"M8 8h8M8 12h8M8 16h4\"/></svg></span>Calculator</button></div>",
+      "css": ".ds-tools { display: flex; gap: 6px; background: var(--bar, #e9edf8); padding: 8px 12px 0; } .ds-tool { position: relative; display: flex; flex-direction: column; align-items: center; gap: 3px; background: none; border: none; padding: 7px 12px 9px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12.5px; font-weight: 600; color: #1b1b1b; border-radius: 7px 7px 0 0; min-width: 62px; cursor: pointer; } .ds-tool::after { content: \"\"; position: absolute; left: 10px; right: 10px; bottom: 2px; height: 2.5px; border-radius: 2px; background: transparent; } .ds-tool:hover { background: #fff; } .ds-tool:hover::after { background: #1b1b1b; } .ds-tool[aria-pressed=\"true\"] { background: #fff; } .ds-tool[aria-pressed=\"true\"]::after { background: var(--blue, #2f5fd0); } .ds-tool-ic { height: 21px; display: grid; place-items: center; } .ds-tool-ic svg { width: 21px; height: 21px; }"
+    },
+    {
+      "name": "Navigator Square",
+      "kind": "chip",
+      "refersTo": "nav-question-box",
+      "description": "Dashed outline for unanswered, solid blue fill for answered, black ring for current. The core state metaphor.",
+      "html": "<div class=\"ds-navgrid\"><button class=\"ds-qbox\">1</button><button class=\"ds-qbox ds-qbox-done\">2</button><button class=\"ds-qbox ds-qbox-here\">3</button></div>",
+      "css": ".ds-navgrid { display: flex; gap: 20px; padding: 8px 0; } .ds-qbox { width: 44px; height: 44px; border: 2px dashed #7a7a7a; border-radius: 5px; background: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 700; font-size: 17px; display: grid; place-items: center; padding: 0; color: var(--blue, #2f5fd0); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; } .ds-qbox:hover { border-color: #1b1b1b; } .ds-qbox-done { background: var(--blue, #2f5fd0); border: 2px solid var(--blue, #2f5fd0); color: #fff; text-decoration: none; } .ds-qbox-here { box-shadow: 0 0 0 3px #1b1b1b; }"
+    },
+    {
+      "name": "Question Header",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "The black number block, the flag toggle, and the dashed rule that separates chrome from exam content.",
+      "html": "<div class=\"ds-qhead\"><span class=\"ds-qnum\">7</span><button class=\"ds-qmark\"><svg viewBox=\"0 0 13 16\" width=\"13\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"><path d=\"M2 1v14M2 2h9l-2 3.5L11 9H2\"/></svg>Mark for Review</button></div>",
+      "css": ".ds-qhead { position: relative; display: flex; align-items: stretch; background: #f1f1f1; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; } .ds-qhead::after { content: \"\"; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: repeating-linear-gradient(to right, #1b1b1b 0 20px, transparent 20px 26px); } .ds-qnum { background: #1b1b1b; color: #fff; min-width: 34px; padding: 0 8px; display: grid; place-items: center; font-weight: 700; font-size: 17px; } .ds-qmark { display: inline-flex; align-items: center; gap: 7px; background: none; border: none; padding: 6px 12px; font-size: 14px; font-weight: 600; color: #1b1b1b; cursor: pointer; } .ds-qmark[aria-pressed=\"true\"] { color: var(--flag, #c8102e); }"
+    },
+    {
+      "name": "Hanging Banner",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Square on top, rounded at the bottom, so it reads as hanging from the bar above.",
+      "html": "<div class=\"ds-banner-nocalc\"><span class=\"ds-banner-mid\">Calculator not permitted in this section</span></div>",
+      "css": ".ds-banner-nocalc { display: flex; align-items: center; justify-content: center; gap: 12px; background: var(--redbg, #fad4d9); color: var(--redink, #7d1620); border-radius: 0 0 9px 9px; padding: 6px 16px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11.5px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; } .ds-banner-mid { flex: 1; text-align: center; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Faithful Copy",
+    "overview": "This system has no independent taste, and that is the design decision. It is an imitation of College Board's Bluebook exam application, and every rule in this file reduces to because Bluebook does it. A student practises here so that nothing about the interface is a surprise on exam day; the moment a decision is made because it would look better, the product has failed at its only job.\n\nThat gives the system an unusual authority structure. The incumbent implementation is not merely the current state — it is the specification. Where this file and the code disagree, the code wins and this file is stale. Novel surfaces that Bluebook has no equivalent for — the sign-in screen, the answer-key builder — are assembled out of the same vocabulary rather than invented fresh.\n\nUnderneath the imitation there is a consistent logic, which is what makes it extendable. Chrome is periwinkle-grey and sans-serif; content is white and serif; the two never blend. Depth is drawn, not lit — the boundary between chrome and content is a dashed black rule, not a shadow. Controls are heavy and unambiguous: 2px borders, 52px choice rows, a 44px navigator square, a solid black number block. A student under a running clock must never misread a target, so nothing here is subtle, low-contrast, or small.",
+    "keyCharacteristics": [
+      "Two type worlds: system sans for chrome, Source Serif 4 for anything the student reads or answers.",
+      "Dashed black hairlines (20px on / 6px off) as the signature separator between chrome and content.",
+      "Flat by default; shadow only on layers that genuinely float.",
+      "Blue means you did this; crimson means time or flag; amber means note; gold means go.",
+      "Oversized hit targets and 2px borders throughout.",
+      "One accent per state — never two competing colors on one control."
+    ],
+    "rules": [
+      { "name": "The One Affirmative Rule", "body": "Blue is reserved for states the student caused. Never use it for decoration, for headings, or to make a surface look nicer. If a blue element does not mean answered, selected, active, or focused, it is wrong.", "section": "colors" },
+      { "name": "The Chrome Boundary Rule", "body": "Periwinkle appears only on the top and bottom bars. A periwinkle card, panel, or content surface breaks the single strongest orientation signal in the interface.", "section": "colors" },
+      { "name": "The Signal Scarcity Rule", "body": "Crimson, gold, and amber each carry exactly one meaning — alarm, go, annotation — and none may appear more than once on screen at a time.", "section": "colors" },
+      { "name": "The Two Voices Rule", "body": "Serif is the test; sans is the tool. Anything the student reads to answer a question, or types as an answer, is serif. Anything the application says about itself is sans. Never mix them inside one block.", "section": "typography" },
+      { "name": "The Zoomable Content Rule", "body": "Question content sizes in em off a --zoom-scaled root (.zoomable), so the text-size control scales the exam and not the chrome. Never hard-code px font sizes inside question rendering.", "section": "typography" },
+      { "name": "The Pinned Column Rule", "body": "Any grid whose children can be hidden assigns grid-column explicitly. Relying on source order is how the toolbar once migrated into the clock's empty slot.", "section": "layout" },
+      { "name": "The Single Scroll Rule", "body": "The shell never scrolls; exactly one region does. overflow:hidden on main, overflow-y:scroll on the pane.", "section": "layout" },
+      { "name": "The Drawn-Depth Rule", "body": "If an element sits in the document flow, it gets a border, never a shadow. Shadow is proof of floating.", "section": "elevation" },
+      { "name": "The Dashed Rule Rule", "body": "The dashed black separator belongs to the boundary between application chrome and exam content. Do not use it as decoration, and do not replace it with a solid line.", "section": "elevation" },
+      { "name": "The Dashed-to-Solid Rule", "body": "Incomplete state is a dashed outline on white; complete state is a solid blue fill. It applies to the navigator and its legend, and to any future progress affordance.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do check every new decision against the real Bluebook first. \"Because Bluebook does it\" is the only argument this system accepts, and the shipped code is the reference when the real app is not to hand.",
+      "Do use serif (Source Serif 4) for anything the student reads to answer or types as an answer, and system sans for everything the application says about itself.",
+      "Do keep the dashed black rule as the boundary between chrome and content (repeating-linear-gradient(to right,#1b1b1b 0 20px,transparent 20px 26px)).",
+      "Do give controls 2px borders and oversized targets — 52px choice rows, 44px navigator squares, 26px letter discs.",
+      "Do pin grid-column explicitly on any bar whose children can be hidden.",
+      "Do size question content in em under .zoomable so the text-size control scales the exam and not the chrome.",
+      "Do use font-variant-numeric: tabular-nums on anything counting down.",
+      "Do qualify swatch and state selectors with their element (.hltoolbar button.sw-y) — source order loses to specificity here.",
+      "Do give any element with a base transform its own keyframes that carry that transform through (see navRise versus riseIn)."
+    ],
+    "donts": [
+      "Don't introduce a font, a palette, or a visual idea that the real Bluebook does not have. There is no room for authorship on the exam surface.",
+      "Don't put periwinkle (--bar) on anything but the top and bottom bars.",
+      "Don't use Sanctioned Blue for decoration. It means answered, selected, active, or focused, and nothing else.",
+      "Don't add shadows to resting surfaces. Flat plus a border is the default; shadow means the element floats.",
+      "Don't tint a selected choice row's background — the selection reads through the border and the letter disc only.",
+      "Don't remove or restyle the global 3px Sanctioned Blue focus outline.",
+      "Don't inject a third-party global stylesheet into the exam document. The TI-84 emulator lives in its own page for exactly this reason.",
+      "Don't reorder the @imports in src/styles/index.css. The order is load-bearing and narrow.css must stay last."
+    ]
+  }
+}
