@@ -1,0 +1,27 @@
+/* Embed mode (src/embed/embed.js). Everything here is scoped to the embedded
+   app or to elements only embed mode creates, so the standalone site is
+   untouched. A host theme loads after this file and overrides tokens only. */
+
+.embed-status{
+  position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;padding:24px;background:var(--surface, #fff);color:var(--ink);text-align:center;
+}
+.embed-status p{margin:0;font-size:16px;font-weight:600}
+.embed-status.failed p{color:var(--redink)}
+.embed-status pre{
+  max-width:640px;max-height:40vh;overflow:auto;margin:0;padding:10px 12px;text-align:left;
+  font-size:12.5px;white-space:pre-wrap;background:var(--panel);border:1px solid var(--line);border-radius:4px;
+}
+
+.embed-finish h1{margin-bottom:18px}
+.submit-line{font-weight:600}
+.submit-line.failed{color:var(--redink)}
+.submit-actions{display:flex;justify-content:center;gap:10px;margin:6px 0 4px}
+.linkish{
+  background:none;border:0;padding:0;font:inherit;color:var(--blue);text-decoration:underline;
+  text-underline-offset:2px;cursor:pointer;
+}
+.linkish:hover{color:var(--blue-dark)}
+
+/* The finish screen is the end of an embedded attempt: there is no start to return to. */
+html.embedded body:has(.embed-finish) #homeBtn{display:none}

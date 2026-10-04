@@ -146,6 +146,8 @@ export function initSignin(onStart) {
 }
 
 export function hideSignin() {
-  if (ui.signin) ui.signin.hidden = true;
+  // Embedded boots never wire this screen, so the cache may be empty.
+  const box = ui.signin || $("signin");
+  if (box) box.hidden = true;
   document.body.classList.remove("on-signin");
 }

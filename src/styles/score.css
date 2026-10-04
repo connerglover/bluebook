@@ -1,8 +1,8 @@
 /* ---------------- score panel on the finish screen ---------------- */
 /* Only rendered when meta.scoreReveal asks for it. */
 .scorecard{
-  margin:0 0 22px;padding:18px 20px;border-radius:10px;
-  background:var(--blue-soft);border:1px solid #c7d4f2;text-align:center;
+  margin:0 0 22px;padding:18px 20px;border-radius:var(--bb-r-box, 10px);
+  background:var(--blue-soft);border:1px solid var(--bb-line, #c7d4f2);text-align:center;
 }
 .scorecard h2{
   margin:0 0 6px;font-size:13px;font-weight:700;letter-spacing:.06em;

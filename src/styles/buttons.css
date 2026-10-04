@@ -1,12 +1,12 @@
 /* ---------------- buttons ---------------- */
-.btn{border:2px solid transparent;border-radius:24px;padding:9px 26px;font-size:15px;font-weight:700;background:var(--blue);color:#fff}
+.btn{border:2px solid transparent;border-radius:var(--bb-r-pill, 24px);padding:9px 26px;font-size:15px;font-weight:700;background:var(--blue);color:var(--bb-on-strong, #fff)}
 .btn:hover{background:var(--blue-dark)}
-.btn.ghost{background:#fff;color:var(--blue);border-color:var(--blue)}
+.btn.ghost{background:var(--bb-surface, #fff);color:var(--blue);border-color:var(--blue)}
 .btn.ghost:hover{background:var(--blue-soft)}
-.btn.quiet{background:#fff;color:var(--ink);border-color:#9a9a9a}
+.btn.quiet{background:var(--bb-surface, #fff);color:var(--ink);border-color:var(--bb-edge, #9a9a9a)}
 .btn.quiet:hover{background:var(--panel)}
-.btn.gold{background:var(--yellow);color:#1b1b1b}
-.btn.gold:hover{background:#e9c200}
+.btn.gold{background:var(--bb-gold, var(--yellow));color:var(--bb-gold-ink, #1b1b1b);border-color:var(--bb-gold-edge, transparent)}
+.btn.gold:hover{background:var(--bb-gold-hover, #e9c200)}
 .btn:disabled{opacity:.4;cursor:not-allowed}
 .btn.wide{padding:11px 36px}
 

@@ -32,14 +32,14 @@ export function readFixture(name) {
  * Returns the module namespaces plus the window/document, so a suite can both
  * call functions directly and inspect what they did to the DOM.
  */
-export async function boot({ narrow = false } = {}) {
+export async function boot({ narrow = false, url = "https://practice.test/" } = {}) {
   const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8")
     // jsdom would try to fetch these; nothing here needs them.
     .replace(/<link[^>]*href="https:\/\/[^"]*"[^>]*>/g, "")
     .replace(/<script[^>]*src="[^"]*"[^>]*><\/script>/g, "");
 
   const dom = new JSDOM(html, {
-    url: "https://practice.test/",
+    url,
     pretendToBeVisual: true,
   });
   const { window } = dom;

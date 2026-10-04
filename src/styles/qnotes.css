@@ -1,8 +1,8 @@
 /* ---------------- notes on a question ---------------- */
-.issue{margin:22px 0 4px;border:1px solid var(--note);border-left:5px solid var(--note);background:var(--note-soft);border-radius:8px;padding:14px 16px}
+.issue{margin:22px 0 4px;border:1px solid var(--note);border-left:5px solid var(--note);background:var(--note-soft);border-radius:var(--bb-r-box, 8px);padding:14px 16px}
 .issue h3{margin:0 0 4px;font-size:15px}
 .issue p{margin:0 0 10px;font-size:13.5px;color:var(--ink-soft)}
-.issue textarea{width:100%;min-height:76px;font-family:var(--sans);font-size:15px;border:2px solid #d8c39e;border-radius:8px;padding:10px}
+.issue textarea{width:100%;min-height:76px;font-family:var(--sans);font-size:15px;border:2px solid var(--bb-edge, #d8c39e);border-radius:var(--bb-r-box, 8px);padding:10px}
 .issue-actions{display:flex;justify-content:space-between;align-items:center;margin-top:8px;gap:12px}
 .count{font-size:12px;color:var(--ink-soft)}
 .linkbtn{background:none;border:none;font-size:13px;font-weight:600;text-decoration:underline;padding:4px}

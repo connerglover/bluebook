@@ -10,7 +10,8 @@ cd "$(dirname "$0")" || exit 1
 
 SUITES="suite-model suite-questions suite-navigation suite-clock suite-passages
         suite-figures suite-scoring suite-persist suite-results suite-validate
-        suite-highlight suite-calc suite-narrow suite-loader suite-e2e"
+        suite-highlight suite-calc suite-narrow suite-loader suite-e2e
+        suite-embed"
 
 fail=0
 for s in $SUITES; do

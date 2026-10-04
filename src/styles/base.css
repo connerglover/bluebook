@@ -22,7 +22,7 @@
 *{box-sizing:border-box}
 [hidden]{display:none !important}
 html,body{height:100%}
-body{margin:0;font-family:var(--sans);font-size:17px;line-height:1.55;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:var(--sans);font-size:17px;line-height:1.55;color:var(--ink);background:var(--bb-surface, #fff);-webkit-font-smoothing:antialiased}
 button{font-family:inherit;font-size:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:3px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

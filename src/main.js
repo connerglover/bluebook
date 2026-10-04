@@ -26,6 +26,8 @@ import { setTI, setTiHooks, wireTI } from "./calc/ti84.js";
 
 import { initSignin, hideSignin } from "./signin/signin.js";
 import * as store from "./persist/store.js";
+import { parseTest } from "./loader/load.js";
+import { EMBED, applyTheme, fetchTest, isEmbedded, notifyHost, pendingResult, submitResult } from "./embed/embed.js";
 
 let engineWired = false;
 
@@ -124,10 +126,83 @@ function startExam({ data, fileName, name, resume }) {
   typeset(document.body);
 }
 
+/* Embedded: no sign-in screen. The host supplies the test and the name. */
+async function bootEmbedded() {
+  applyTheme();
+  hideSignin();
+  const status = embedStatus("Loading the test…");
+
+  const pending = pendingResult();
+  if (pending) {
+    // Finished on an earlier visit but the result never arrived. Send it now.
+    status.say("Sending your finished test…");
+    try {
+      const reply = await submitResult(JSON.parse(pending));
+      notifyHost({ type: "bb:submitted", attempt: EMBED.attempt, reply });
+      status.say("Your test was submitted.");
+    } catch (err) {
+      status.fail(err.message);
+    }
+    return;
+  }
+
+  let parsed;
+  try {
+    parsed = parseTest(await fetchTest(), "");
+  } catch (err) {
+    status.fail(err.message, err.detail);
+    return;
+  }
+  status.remove();
+
+  const snap = store.load();
+  startExam({
+    data: parsed.data,
+    fileName: "",
+    name: EMBED.name,
+    resume: snap && snap.test ? snap : null,
+  });
+  notifyHost({ type: "bb:ready", attempt: EMBED.attempt });
+}
+
+/** A one-line status for the embedded boot, shown where the sign-in would be. */
+function embedStatus(text) {
+  const box = document.createElement("div");
+  box.className = "embed-status";
+  box.setAttribute("role", "status");
+  const line = document.createElement("p");
+  box.appendChild(line);
+  document.body.appendChild(box);
+  const api = {
+    say(t) { line.textContent = t; box.classList.remove("failed"); },
+    fail(t, detail) {
+      box.classList.add("failed");
+      line.textContent = t;
+      if (detail) {
+        const pre = document.createElement("pre");
+        pre.textContent = detail;
+        box.appendChild(pre);
+      }
+    },
+    remove() { box.remove(); },
+  };
+  api.say(text);
+  return api;
+}
+
 function boot() {
   cacheElements();
-  document.body.classList.add("on-signin");
   applyNarrowClass();
+  if (EMBED && EMBED.broken) {
+    hideSignin();
+    embedStatus("").fail("This practice test link is incomplete. Open it again from the portal.");
+    return;
+  }
+  if (isEmbedded()) {
+    bootEmbedded();
+    return;
+  }
+  document.body.classList.add("on-signin");
   initSignin(startExam);
 }
 
