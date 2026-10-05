@@ -93,6 +93,9 @@ export function buildModel(data, fileName) {
       name: s.name || ("Section " + (si + 1)),
       label: s.label || "",
       calculator: !!s.calculator,
+      /* Said outright: a section that bans the calculator, as opposed to one that
+         simply never mentions it (a reading or history test). */
+      noCalculator: s.calculator === false,
       timeLimitMinutes: s.timeLimitMinutes || 0,
       directions: s.directions || "",
       questions: s.questions || [],

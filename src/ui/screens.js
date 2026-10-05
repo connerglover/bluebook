@@ -48,7 +48,11 @@ export function render() {
   el.previewBanner.hidden = !(meta.previewBanner &&
     (state.screen === "question" || state.screen === "review"));
   if (!el.previewBanner.hidden) el.previewBanner.textContent = meta.previewBanner;
-  const noCalc = sec && !sec.calculator &&
+  /* The banner is for tests where a calculator matters: a section that bans it
+     outright, or one without it in a test where another section allows it.
+     A history or English test that never mentions a calculator shows nothing. */
+  const calcMatters = sec && (sec.noCalculator || SECTIONS.some((s) => s.calculator));
+  const noCalc = calcMatters && !sec.calculator &&
     (state.screen === "question" || state.screen === "review");
   el.nocalcBanner.hidden = !noCalc;
   if (noCalc) {
@@ -94,14 +98,20 @@ function drawIntro() {
         ? "Each section runs its own clock, " + totalMin + " minutes in total. You can hide the clock while you work, and nothing stops you when time runs out."
         : "This test is untimed. Work at whatever pace is useful."],
     [ICON.at, "Use the tools",
-      "Highlights and notes, the line reader, and the calculator all work the way they do on test day. Open More for the full list and the keyboard shortcuts."],
+      (SECTIONS.some((s) => s.calculator)
+        ? "Highlights and notes, the line reader, and the calculator all work the way they do on test day."
+        : "Highlights and notes and the line reader work the way they do on test day.") +
+      " Open More for the full list and the keyboard shortcuts."],
     [ICON.restart, "Your work is saved",
       "Answers, highlights, notes and the clock are saved in this browser as you go. If the tab closes, reopen the app and pick Resume."],
     keyed
       ? [ICON.warn, "Multiple choice is checked here",
         "This test carries a scrambled answer key, so the app can check the multiple-choice questions when you finish. Everything written stays for a human to grade."]
-      : [ICON.warn, "Nothing is scored here",
-        "This test carries no answer key. When you finish, the app saves a file of your responses to hand to whoever is grading it."],
+      : isEmbedded()
+        ? [ICON.warn, "Graded when you finish",
+          "Submitting sends your answers straight to grading. Nothing to save or download."]
+        : [ICON.warn, "Nothing is scored here",
+          "This test carries no answer key. When you finish, the app saves a file of your responses to hand to whoever is grading it."],
   ];
 
   const box = soloMode("");
@@ -257,11 +267,10 @@ function drawDoneEmbedded() {
         '<p class="submit-line" id="submitLine" role="status">Submitting your answers…</p>' +
         '<div id="scoreSlot"></div>' +
         '<div class="submit-actions" id="submitActions" hidden></div>' +
-        '<p class="filehint"><button class="linkish" id="saveCopy" type="button">Save a copy of my results file</button></p>' +
+
       "</div>" +
     "</div>";
 
-  $("saveCopy").addEventListener("click", () => downloadResult());
 
   const answers = {};
   Q.forEach((q) => {
@@ -280,7 +289,7 @@ function drawDoneEmbedded() {
       store.clear();
       const line = $("submitLine");
       if (!line) return;
-      line.textContent = "Submitted. Your written answers go to Hermes for grading.";
+      line.textContent = reply && reply.resultsHref ? "Submitted. Taking you to grading…" : "Submitted.";
       if (reply && reply.visibleScore) {
         $("scoreSlot").innerHTML = scorePanelHTML(reply.visibleScore);
       }
