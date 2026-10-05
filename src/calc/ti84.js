@@ -27,7 +27,7 @@ export const TI_CONFIG = {
      document's CSP, so under the app's own policy the emulator's third-party
      script would be blocked and the calculator would die silently. public/
      ti84.html gets its own, looser policy from _headers instead. */
-  page: "/ti84.html",
+  page: ((import.meta.env && import.meta.env.BASE_URL) || "/") + "ti84.html",
   timeoutMs: 9000,
 };
 

@@ -19,8 +19,12 @@
    and an exception here must never take the exam down. */
 
 import { SECTIONS, meta, source, state } from "../core/state.js";
+import { EMBED, isEmbedded } from "../embed/embed.js";
 
 const KEY = "bluebook:progress:v1";
+/* Embedded, each attempt gets its own slot: the host may have several sittings
+   in progress, and none of them should touch the standalone app's slot. */
+const slot = () => (isEmbedded() ? "bluebook:embed:" + EMBED.attempt : KEY);
 const NAME_KEY = "bluebook:tester";
 const SAVE_FORMAT = 1;
 
@@ -86,11 +90,11 @@ export function snapshot() {
 
 export function save() {
   if (!source.testId || !state.started) return false;
-  return safeSet(KEY, JSON.stringify(snapshot()));
+  return safeSet(slot(), JSON.stringify(snapshot()));
 }
 
 export function load() {
-  const raw = safeGet(KEY);
+  const raw = safeGet(slot());
   if (!raw) return null;
   try {
     const snap = JSON.parse(raw);
@@ -101,7 +105,7 @@ export function load() {
   }
 }
 
-export function clear() { safeRemove(KEY); }
+export function clear() { safeRemove(slot()); }
 
 /** Apply a snapshot's progress over an already-built model. */
 export function restore(snap) {

@@ -2,17 +2,17 @@
 .reader{position:fixed;inset:0;z-index:70;pointer-events:none}
 .reader .shade{position:absolute;background:rgba(20,20,20,.86)}
 .reader .slit{position:absolute;pointer-events:auto;cursor:move}
-.reader .bar{position:absolute;height:34px;background:#1f1f1f;pointer-events:auto;display:flex;align-items:center;color:#fff;padding:0 6px}
+.reader .bar{position:absolute;height:34px;background:var(--bb-dark, #1f1f1f);pointer-events:auto;display:flex;align-items:center;color:var(--bb-on-strong, #fff);padding:0 6px}
 .reader .rl-pad,.reader .rl-right{flex:1;display:flex;align-items:center;justify-content:flex-end;gap:2px}
-.reader .bar button{background:none;border:none;color:#fff;font-size:13px;padding:4px 8px;border-radius:5px;display:grid;place-items:center}
+.reader .bar button{background:none;border:none;color:var(--bb-on-strong, #fff);font-size:13px;padding:4px 8px;border-radius:5px;display:grid;place-items:center}
 .reader .bar button:hover{background:rgba(255,255,255,.2)}
 .reader .bar svg{width:16px;height:16px;display:block}
 .reader .grip{cursor:grab;flex:0 0 auto;height:100%;display:grid;place-items:center;padding:0 14px}
 .reader .grip svg{width:22px;height:10px;opacity:.75}
 .reader .step svg{transition:transform .28s cubic-bezier(.3,.7,.3,1)}
 .reader .step.flipped svg{transform:rotate(180deg)}
-.reader .foot{position:absolute;height:26px;background:#1f1f1f;pointer-events:auto;display:flex;align-items:center;justify-content:center}
-.reader .foot button{background:none;border:none;color:#fff;padding:2px 12px;border-radius:5px;display:grid;place-items:center}
+.reader .foot{position:absolute;height:26px;background:var(--bb-dark, #1f1f1f);pointer-events:auto;display:flex;align-items:center;justify-content:center}
+.reader .foot button{background:none;border:none;color:var(--bb-on-strong, #fff);padding:2px 12px;border-radius:5px;display:grid;place-items:center}
 .reader .foot button:hover{background:rgba(255,255,255,.2)}
 .reader .foot svg{width:18px;height:18px;display:block}
 

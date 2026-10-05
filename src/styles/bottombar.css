@@ -2,9 +2,9 @@
 .bottombar{flex:none;position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;padding:12px 22px;background:var(--bar)}
 .bottombar > :first-child{grid-column:1}
 .navright{grid-column:3}
-.bottombar::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:repeating-linear-gradient(to right,#1b1b1b 0 20px,transparent 20px 26px)}
+.bottombar::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--bb-bar-rule, repeating-linear-gradient(to right,#1b1b1b 0 20px,transparent 20px 26px))}
 .who{font-size:16px;font-weight:700}
-.navtoggle{display:inline-flex;align-items:center;gap:9px;background:#1b1b1b;color:#fff;border:none;border-radius:9px;padding:9px 18px;font-size:15px;font-weight:700}
+.navtoggle{display:inline-flex;align-items:center;gap:9px;background:var(--bb-strong, #1b1b1b);color:var(--bb-on-strong, #fff);border:none;border-radius:var(--bb-r-box, 9px);padding:9px 18px;font-size:15px;font-weight:700}
 .navtoggle svg{width:12px;height:8px;transition:transform .15s}
 .navtoggle[aria-expanded="false"] svg{transform:rotate(180deg)}
 .navright{display:flex;justify-content:flex-end;gap:10px}

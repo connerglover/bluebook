@@ -11,8 +11,8 @@
   font-family:var(--serif);
 }
 .qfigure-missing{
-  margin:0;padding:12px 14px;border:1px dashed var(--line);border-radius:6px;
-  background:#fafafa;color:var(--ink-soft);font-size:14.5px;font-style:italic;
+  margin:0;padding:12px 14px;border:1px dashed var(--line);border-radius:var(--bb-r-box, 6px);
+  background:var(--bb-fill, #fafafa);color:var(--ink-soft);font-size:14.5px;font-style:italic;
 }
 /* Description text for screen readers; the drawing carries it visually. */
 .sr-only{

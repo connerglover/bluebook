@@ -15,7 +15,10 @@ import { hideDelete, hideHlBar, openNotes } from "./highlight.js";
 import { setCalc } from "../calc/panel.js";
 import { setReader } from "./reader.js";
 import { hasKey, scoreTest, visibleScore } from "../scoring/score.js";
-import { downloadResult, resultFileName } from "../results/bbresult.js";
+import { buildResult, downloadResult, resultFileName } from "../results/bbresult.js";
+import { canonical, isScorable } from "../scoring/hash.js";
+import { EMBED, isEmbedded, notifyHost, submitResult } from "../embed/embed.js";
+import * as store from "../persist/store.js";
 
 export function go(screen) {
   const before = state.screen;
@@ -238,7 +241,72 @@ function scorePanelHTML(vis) {
   return h;
 }
 
+/* Embedded, finishing IS submitting: the result goes straight to the host,
+   which scores it against a key the browser never sees. The tester can still
+   keep a copy of the file. */
+function drawDoneEmbedded() {
+  setCalc(false);
+  setReader(false);
+  el.secTitle.textContent = "";
+
+  const box = soloMode("");
+  box.innerHTML =
+    '<div class="finish embed-finish">' +
+      "<h1>Test finished</h1>" +
+      '<div class="donecard">' +
+        '<p class="submit-line" id="submitLine" role="status">Submitting your answers…</p>' +
+        '<div id="scoreSlot"></div>' +
+        '<div class="submit-actions" id="submitActions" hidden></div>' +
+        '<p class="filehint"><button class="linkish" id="saveCopy" type="button">Save a copy of my results file</button></p>' +
+      "</div>" +
+    "</div>";
+
+  $("saveCopy").addEventListener("click", () => downloadResult());
+
+  const answers = {};
+  Q.forEach((q) => {
+    if (!isScorable(q.type)) return;
+    const c = canonical(q.type, state.answers[q.id], q);
+    if (c != null) answers[q.id] = c;
+  });
+  const payload = { attempt: EMBED.attempt, result: buildResult(), answers };
+
+  const send = () => {
+    $("submitLine").textContent = "Submitting your answers…";
+    $("submitLine").classList.remove("failed");
+    $("submitActions").hidden = true;
+    submitResult(payload).then((reply) => {
+      store.stopAutosave();
+      store.clear();
+      const line = $("submitLine");
+      if (!line) return;
+      line.textContent = "Submitted. Your written answers go to Hermes for grading.";
+      if (reply && reply.visibleScore) {
+        $("scoreSlot").innerHTML = scorePanelHTML(reply.visibleScore);
+      }
+      const actions = $("submitActions");
+      if (reply && reply.resultsHref) {
+        actions.innerHTML = '<a class="btn gold" id="toResults" target="_top" href="' +
+          esc(reply.resultsHref) + '">See results</a>';
+        actions.hidden = false;
+      }
+      notifyHost({ type: "bb:submitted", attempt: EMBED.attempt, reply });
+    }).catch((err) => {
+      const line = $("submitLine");
+      if (!line) return;
+      line.textContent = err.message;
+      line.classList.add("failed");
+      const actions = $("submitActions");
+      actions.innerHTML = '<button class="btn gold" id="retrySubmit" type="button">Try again</button>';
+      actions.hidden = false;
+      $("retrySubmit").addEventListener("click", send);
+    });
+  };
+  send();
+}
+
 function drawDone() {
+  if (isEmbedded()) { drawDoneEmbedded(); return; }
   setCalc(false);
   setReader(false);
   el.secTitle.textContent = "";
